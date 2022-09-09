@@ -1,8 +1,6 @@
-<img src="https://github.com/kabianca/social-network/blob/main/cooking.png" alt="Logo" style="height: 80px;"/>
+# **Eu Chef:** _sua rede de receitas_ 🥘
 
-# **Eu Chef:** _sua rede de receitas_
-
-## **Cardápio**
+## **Indice**
 - [1. Apresentação](#1-apresentação)
 - [2. Eu Chef](#2-eu-chef)
 - [3. Protótipo de Baixa Fidelidade](#3-protótipo-de-baixa-fidelidade)
@@ -18,15 +16,15 @@
 Esse projeto tem como principal objetivo a construção de uma rede social de temática livre na qual usuários podem se registrar usando email/senha ou uma conta Google. Além disso, somente usuários cadastrados possuem acesso ao conteúdo, não podem haver usuários repetidos, deve-se usar um e-mail válido para cadastro e o acesso a senha é restrito ao usuário. Também, como uma premissa básica das redes sociais a comunidade poderá publicar postagens e/ou excluir suas próprias postagens quando desejar, poder dar e remover likes (máximo de um por usuário/postagem).
 
 
-## **2. Eu Chef** 🍱🥘
+## **2. Eu Chef** 
 
-Uma Rede Social com foco na troca de receitas. A _Eu Chef_ tem como objetivo ser uma Rede social 
-onde as pessoas poderão publicar suas próprias receitas, acessar receitas publicadas por 
+A _Eu Chef_ é uma Rede Social com foco na troca de receitas. Tem como objetivo ser uma rede
+onde é possível publicar suas próprias receitas, acessar receitas publicadas por 
 outras pessoas, curtir e salvar suas receitas favoritas em um livro de receitas único e 
 particular, além de conversar sobre modos de preparos e ingredientes substitutos. A ideia 
-principal é que a comunidade usuária possa ter acesso a um catálogo de receitas, realize buscas por 
-ingredientes, tempo de preparação ou restrições alimentares e, sobretudo, alimentem o 
-repositório da rede com suas criações.
+principal é que a comunidade usuária tenha acesso a catálogos de receitas, realize buscas por 
+ingredientes, tempo de preparação ou restrições alimentares e, sobretudo, constribuam com o 
+respositório de receitas suas criações.
 
 * Quem são os principais usuários do produto.
 * Qual problema o produto resolve/para que ele serve para esses usuários.
@@ -74,3 +72,36 @@ uma de suas histórias de usuário deve possuir:
 
 - Logo: [Cooking stickers created by Stickers - Flaticon](https://www.flaticon.com/free-stickers/cooking)
 - Imagem: [Login Backrground by pickledstardust](https://unsplash.com/photos/4xc6i5BKPWs)
+
+## **7. Autoras**
+
+<h4>Projeto do Bootcamp da <em><a href="https://hub.laboratoria.la/br">Laboratoria</a></em></h4>
+
+<table>
+<td>
+  <div align= "center">
+    <img alt="Karla Oliveira" height="100" src="https://avatars.githubusercontent.com/u/101295603?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/kabianca">Karla Oliveira</a></h3>
+  
+</td>
+
+<td>
+  <div align= "center">
+    <img alt="
+Marina Massaneiro" height="100" src="https://avatars.githubusercontent.com/u/104513517?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/marinamassaneiro">Marina Massaneiro</a></h3>
+  <div align="center">
+  </div>
+</td>
+
+<td>
+    <div align= "center">
+    <img alt="Polyana Magalhães" height="100" src="https://avatars.githubusercontent.com/u/98547636?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/polyanagm">Polyana Magalhães</a></h3>
+   
+</td>
+
+</table>
