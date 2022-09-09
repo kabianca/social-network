@@ -1,12 +1,14 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-export {initializeApp, getAnalytics} from "./config.js";
+import {app} from "./config.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-const inputEmail = document.querySelector('#email').value;
-const inputPassword = document.querySelector('#password').value;
+const inputEmail = document.querySelector('#email');
+const inputPassword = document.querySelector('#password');
 const btnLogin = document.querySelector('button');
-btnLogin.addEventListener('click', () => {
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, inputEmail, inputPassword)
+
+btnLogin.addEventListener('click', (event) => {
+  event.preventDefault();
+  const auth = getAuth(app);
+  createUserWithEmailAndPassword(auth, inputEmail.value, inputPassword.value)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -17,6 +19,4 @@ btnLogin.addEventListener('click', () => {
       const errorMessage = error.message;
       // ..
     });
-  }
-
-  //teste
+})
