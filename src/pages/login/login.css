@@ -1,0 +1,58 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    background-image: url(../../assets/pickled-stardust-4xc6i5BKPWs-unsplash.jpg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-red: #B4020C;
+    --color-light-green: #708F11;
+    --color-dark-gree: #122D02;
+    --color-indigo: #22343C;
+}
+
+#logo {
+    margin-top: 10vh;
+    height: 20vh;
+    width: auto;
+}
+
+h1 {
+    color: var(--color-white);
+    font-size: 4rem;
+}
+
+h3 {
+    color: var(--color-light-green);
+    font-size: 3rem;
+}
+
+form {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5vh;
+}
+
+input[type='email'],
+input[type='password']  {
+    width: 40vw;
+    height: 3.5vh;
+}
+
+input[type='submit'] {
+    width: 30vw;
+    height: 3.5vh;
+    background-color: var(--color-red);
+    border: none;
+    color: var(--color-white);
+}
+
