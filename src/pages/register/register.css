@@ -1,0 +1,83 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    background-image: url(../../assets/fundo-sem-pimenta.jpg);
+    background-size: cover;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-red: #B4020C;
+    --color-light-green: #708F11;
+    --color-dark-green: #122D02;
+    --color-indigo: #22343C;
+    --font-koho: 'KoHo', sans-serif;
+    --font-league: 'League Script', cursive;
+}
+
+#logo {
+    margin: 4vh 0 2.5vh 0;
+    height: 13.5vh;
+    width: auto;
+}
+
+h1 {
+    color: var(--color-white);
+    font-size: 3.7rem;
+    font-family: var(--font-league);
+}
+
+h3 {
+    color: var(--color-light-green);
+    font-size: 2.2rem;
+    font-family: var(--font-koho);
+}
+
+form {
+    margin: 2.5vh 0 5vh 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5vh;
+}
+
+input {
+    border: 0.18rem groove var(--color-light-green);
+    width: 70vw;
+    height: 4vh;
+    border-radius: 5px;
+    color: var(--color-dark-green);
+}
+
+input::placeholder {
+    color: var(--color-dark-green);
+  }
+
+input[type='submit'] {
+    background-color: var(--color-red);
+    margin-top: 1vh;
+    width: 25vw;
+    height: 4vh;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 10px;
+    color: var(--color-white);
+    font-family: var(--font-koho);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+h4 {
+    margin-bottom: 3vh;
+    color: var(--color-white);
+    font-family: var(--font-koho);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+a {
+    color: var(--color-light-green); 
+}
