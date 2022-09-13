@@ -1,0 +1,95 @@
+ * {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-red: #B4020C;
+    --color-light-green: #708F11;
+    --color-dark-green: #122D02;
+    --color-indigo: #22343C;
+    --color-background: #000810;
+    --color-background-dark: #010509;
+    --font-koho:'KoHo', sans-serif;
+    --font-league:'League Script', cursive;
+}
+
+body {
+    background-color: var(--color-background-dark);
+    background-size: cover;
+}
+
+#container-timeline {
+    background-color: var(--color-white);
+    height: 100vh;
+}
+
+.page-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#gif-timeline {
+    margin: 1vh 1vw;
+    height: 15vh;
+    width: auto;
+}
+
+#h3-timeline {
+    margin: 2vh 6vw 2vh 0;
+    color: var(--color-red);
+    font-size: 1.7rem;
+    font-family:var(--font-koho);
+}
+
+.box-timeline {
+    background-color: var(--color-indigo);
+    padding-top: 2vh;
+    height: 100vh;
+    border-radius: 20px 20px 0 0;
+}
+
+.post-timeline {
+    background-color: var(--color-white);
+    height: 15vh;
+    width: 85vw;
+    border-radius: 10px;
+}
+
+h5 {
+    margin: 0;
+    padding: 5vh 5vw;
+    color: var(--color-background-dark);
+    font-size: 1.5rem;
+    font-family:var(--font-koho);
+}
+
+/*form {
+    margin:0;
+    display: flex;
+    flex-direction: row;
+    row-gap: 0.5vh;
+}
+
+#btn-home, #btn-logout{
+    background-color: var(--color-indigo);
+    height: 10vh;
+    width: 10vw;
+    border: none;
+}*/
+
+#footer-form {
+    margin-top: 0;
+    display: block;
+    flex-direction: column;
+    row-gap: 2.5vh;
+}
+
+footer {
+    background-color: var(--color-indigo);
+    padding-bottom: 5vh;
+}

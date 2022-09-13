@@ -3,11 +3,12 @@ import { signinUserEmail } from "../../lib/auth.js"
 //Gerar os elementos HTML da página:
 export default () => {
     const container = document.createElement("div");
+    container.id = "container-register"
 
     const template = `
-        <img src="assets/cooking.png">
+        <img id="logo" src="assets/cooking.png">
         <h1>Eu Chef</h1>
-        <h3>Sua Rede de Receitas</h3>
+        <h3 id="h3-register">Cadastro</h3>
         <form>
             <input type="text" id="name" placeholder="Nome">
             <input type="text" id="user-name" placeholder="Nome de Usuário">
@@ -15,9 +16,9 @@ export default () => {
             <input type="date" id="user-born" placeholder="Data de Nascimento (ex: 01/31/2012)">
             <input type="password" id="password" placeholder="Senha">
             <input type="password" id="password" placeholder="Confirmação de Senha">
-            <input type="submit" value="Cadastrar" id="btn-signin">
+            <input type="submit" value="Cadastrar" id="btn-register">
         </form>
-        <h5>Já possui conta? <a href="#login">Entrar</a></h5>
+        <h4>Já possui conta?<a href="#login">Entrar</a></h4>
     `;
 
     container.innerHTML = template;
@@ -25,13 +26,13 @@ export default () => {
     //Definir o comportamento da página de cadastro:
     const inputEmail = container.querySelector('#email');
     const inputPassword = container.querySelector('#password');
-    const btnSignin = container.querySelector('#btn-signin');
+    const btnRegister = container.querySelector('#btn-register');
 
-    btnSignin.addEventListener('click', (event) => {
+    btnRegister.addEventListener('click', (event) => {
         event.preventDefault();
-        signinUserEmail(auth, inputEmail.value, inputPassword.value)
+        signinUserEmail(inputEmail.value, inputPassword.value)
           .then((userCredential) => {
-            // encaminhar usuário para timeline
+            window.location.hash = '#timeline';
           })
           .catch((error) => {
             const errorCode = error.code;

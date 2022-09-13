@@ -21,8 +21,8 @@ export function loginUserEmail(email, password) {
 }
 
 //função de cadastro de usuário por email e senha:
-export function signinUserEmail(userName, email, password) {
-  return createUserWithEmailAndPassword(auth, userName, email, password)
+export function signinUserEmail(email, password) {
+  return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       return user;
@@ -31,7 +31,7 @@ export function signinUserEmail(userName, email, password) {
 
 //função de logar pelo Google:
 export const signinGoogle = () => {
-  signInWithPopup(auth, provider)
+  return signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
