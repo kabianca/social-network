@@ -3,11 +3,12 @@ import { signinUserEmail } from "../../lib/auth.js"
 //Gerar os elementos HTML da página:
 export default () => {
     const container = document.createElement("div");
+    container.id = "container-register"
 
     const template = `
         <img id="logo" src="assets/cooking.png">
         <h1>Eu Chef</h1>
-        <h3>Cadastro</h3>
+        <h3 id="h3-register">Cadastro</h3>
         <form>
             <input type="text" id="name" placeholder="Nome">
             <input type="text" id="user-name" placeholder="Nome de Usuário">
