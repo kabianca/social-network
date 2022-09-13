@@ -1,58 +1,99 @@
 * {
+    box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
     text-align: center;
-}
-
-body {
-    background-image: url(../../assets/pickled-stardust-4xc6i5BKPWs-unsplash.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 :root {
     --color-white: #FFFFFF;
     --color-red: #B4020C;
     --color-light-green: #708F11;
-    --color-dark-gree: #122D02;
+    --color-dark-green: #122D02;
     --color-indigo: #22343C;
+    --color-background: #000810;
+    --color-background-dark: #010509;
+    --font-koho:'KoHo', sans-serif;
+    --font-league:'League Script', cursive;
+}
+
+body {
+    background-color: var(--color-background-dark);
+    background-size: cover;
+}
+
+#container-login {
+    background-image: url(../../assets/pickled-stardust-4xc6i5BKPWs-unsplash.jpg);
+    background-repeat: repeat;
+    background-size: 90vh;
+    background-position: bottom 100vh right 150vw;
+    display: fixed;
+    height: 100vh;
+    margin: 5vh 0;
+    padding: 2vh 0;
 }
 
 #logo {
-    margin-top: 10vh;
-    height: 20vh;
+    margin: 4vh 0 2.5vh 0;
+    height: 13.5vh;
     width: auto;
 }
 
 h1 {
     color: var(--color-white);
-    font-size: 4rem;
+    font-size: 3.7rem;
+    font-family:var(--font-league);
 }
 
-h3 {
+#h3-login {
+    margin-top: 5vh;
     color: var(--color-light-green);
-    font-size: 3rem;
+    font-size: 2.2rem;
+    font-family:var(--font-koho);
 }
 
 form {
-    margin-top: 5vh;
+    margin: 2.5vh 0 5vh 0;
     display: flex;
     flex-direction: column;
     row-gap: 2.5vh;
 }
 
-input[type='email'],
-input[type='password']  {
-    width: 40vw;
-    height: 3.5vh;
+input {
+    border: 0.18rem groove var(--color-light-green);
+    width: 50vw;
+    height: 4vh;
+    border-radius: 5px;
+    color: var(--color-dark-green);
 }
 
 input[type='submit'] {
-    width: 30vw;
-    height: 3.5vh;
     background-color: var(--color-red);
+    width: 32vw;
+    height: 3.5vh;
     border: none;
+    border-radius: 5px;
     color: var(--color-white);
 }
 
+h5 {
+    margin-top: 13vh;
+    color: var(--color-white);
+    font-family:var(--font-koho);
+}
+
+h5 > a {
+    color: var(--color-light-green);
+    text-decoration: none;
+}
+
+#btn-google {
+    background-color: var(--color-no-background);
+    border: none;
+}
+
+#img-google {
+    height:8vw;
+    width: auto;
+    border-radius: 5px;
+}
