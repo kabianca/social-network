@@ -14,15 +14,15 @@ export default () => {
         <div id="post-timeline"> 
             <h5>Postagem</h5>
         </div> 
-    </section> 
-    <footer>
         <nav>
             <ul>
               <li><a href= "#timeline" id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
               <li><a href= "#login" id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
             </ul>  
         </nav>
-    </footer>
+
+    </section> 
+    
     `;
 
   // input post:

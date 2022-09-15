@@ -53,6 +53,7 @@ input::placeholder {
   display: flex;
   padding: 3vh 20vw;
   justify-content: center;
+  margin: 6vh 5vh 3vh 3vh;
   font-family: var(--font-koho);
   font-weight: 500;
   font-size: 1rem;

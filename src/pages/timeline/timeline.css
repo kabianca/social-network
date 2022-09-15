@@ -45,18 +45,20 @@
    font-family: var(--font-koho);
  }
 
- #container-timeline > footer {
+ #body-timeline > nav {
    background-color: var(--color-background-dark);
-   display: fixed;
+   position: fixed;
+   width: 100%;
+   bottom: 0;
  }
 
- #container-timeline > footer > nav > ul {
+ #body-timeline > nav > ul {
    display: flex;
    padding: 3vh 3vw;
    justify-content: center;
  }
 
- #container-timeline > footer > nav > ul > li {
+ #body-timeline > nav > ul > li {
    margin: 0 10vw;
  }
 
