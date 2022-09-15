@@ -8,14 +8,17 @@ export default () => {
   const template = `
         <img id="logo" src="assets/cooking.png">
         <h1>Eu Chef</h1>
-        <h3 id="h3-login">Sua Rede de Receitas</h3>
+        <h3>Sua Rede de Receitas</h3>
         <form>
-            <input type="email" id="email" placeholder="Insira seu e-mail">
-            <input type="password" id="password" placeholder="Digite sua senha">
-            <input id="btn-login" type="submit" value="Logar" />
-            <button id="btn-google"><img id= "img-google" src="assets/btn_google_signin_light_normal_web@2x.png" alt="botão de login com conta google"></button>
+          <input type="email" id="email" placeholder="Insira seu e-mail">
+          <input type="password" id="password" placeholder="Digite sua senha">
+          <input id="btn-login" type="submit" value="Logar" />
+          <button id="btn-google"><img id="img-google" src="assets/btn_google_signin_light_normal_web@2x.png" alt="botão de login com conta google"></button>
         </form>
-        <h4>Não possui conta?<a id="btn-register" href="#register"> Cadastre-se</a></h4>
+        <footer>
+          <h4>Não possui conta?</h4>
+          <a id="btn-register" href="#register">Cadastre-se</a>
+        </footer>
     `;
 
   container.innerHTML = template;
