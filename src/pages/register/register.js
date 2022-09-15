@@ -8,7 +8,7 @@ export default () => {
     const template = `
         <img id="logo" src="assets/cooking.png">
         <h1>Eu Chef</h1>
-        <h3 id="h3-register">Cadastro</h3>
+        <h3>Cadastro</h3>
         <form>
             <input type="text" id="name" placeholder="Nome">
             <input type="text" id="user-name" placeholder="Nome de Usuário">
@@ -18,7 +18,10 @@ export default () => {
             <input type="password" id="password" placeholder="Confirmação de Senha">
             <input type="submit" value="Cadastrar" id="btn-register">
         </form>
-        <h4>Já possui conta?<a href="#login">Entrar</a></h4>
+        <footer>
+          <h4>Já possui conta?</h4>
+          <a id="btn-register" href="#login">Logar</a>
+        </footer>
     `;
 
     container.innerHTML = template;
