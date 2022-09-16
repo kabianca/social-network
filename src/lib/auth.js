@@ -3,9 +3,10 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  // onAuthStateChanged,
+  onAuthStateChanged,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  signOut
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 const auth = getAuth(app);
@@ -38,4 +39,16 @@ export const signinGoogle = () => {
       const user = result.user;
       return user;
     })
+}
+
+//função que verifica se o usuário está logado ou não:
+export function statusUser(status) {
+  return onAuthStateChanged(auth, (user) => {
+    status(user !== null);
+  })
+}
+
+//função de logout:
+export function logout() {
+  return signOut(auth);
 }
