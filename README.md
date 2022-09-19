@@ -78,6 +78,18 @@ uma de suas histórias de usuário deve possuir:
   * Ser uma SPA.
   * Fazer deploy do aplicativo e marcar a versão (git tag).
 
+* 🔴**Desafios:**
+  * Implementação da SPA e rotas.
+  * Ajuste do background em nossas páginas.
+  * Realizar o login com o Firebase.
+  * Salvar dados do cadastro.
+
+  
+* 🟢**Resolução:**
+  * Usamos o ".then" e "hash", conseguindo a navegação entre páginas. 
+  * Usamos o mesmo background em todas as páginas, pois trabalhamos com um único "body" no CSS.
+  * Seguimos a documentação disponibilizada no Firebase, e conseguimos o login com e-mail/senha e pela conta Google.
+  * Usamos o dado (nome) que já tínhamos da autenticação na função updateProfile, imprimindo o nome de usuário na timeline.  
 ## **7. Fonte das imagens**
 
 - Logo: [Cooking stickers created by Stickers - Flaticon](https://www.flaticon.com/free-stickers/cooking)
