@@ -40,6 +40,7 @@ export default () => {
     event.preventDefault();
     loginUserEmail(inputEmail.value, inputPassword.value)
       .then(() => {
+        container.innerHTML = "";
         window.location.hash = '#timeline';
       })
       .catch((error) => {
@@ -49,7 +50,6 @@ export default () => {
   });
 
   //Login pelo Google:
-  //Inserir o código do firebase aqui
   btnGoogle.addEventListener('click', (eventTwo) => {
     eventTwo.preventDefault();
     signinGoogle().then(() => {

@@ -1,3 +1,5 @@
+import { logout } from "../../lib/auth.js";
+
 //Gerar os elementos HTML da página:
 export default () => {
   const container = document.createElement("div");
@@ -16,8 +18,8 @@ export default () => {
         </div> 
         <nav>
             <ul>
-              <li><a href= "#timeline" id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
-              <li><a href= "#login" id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
+              <li><a id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
+              <li><a id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
             </ul>  
         </nav>
 
@@ -25,18 +27,21 @@ export default () => {
     
     `;
 
-  // input post:
-  // <textarea type="post"></textarea>
-  //         <button>Postar</button>
-  //<p>Desenvolvido por Karla Oliveira, Marina Massaneiro e Polyana Magalhães</p>
-
-  // const btnLogout = container.querySelector('#btn-logout');
+  const btnLogout = container.querySelector('#btn-logout');
   const btnHome = container.querySelector('#btn-home');
 
   btnHome.addEventListener('click', (event) => {
     event.preventDefault();
-    window.location.hash = '#timeline';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  btnLogout.addEventListener("click", () => {
+    logout()
+      .then(() => {
+        window.location.hash = "#login";
+      });
+  });
+
 
   return container;
 }
