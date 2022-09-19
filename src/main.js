@@ -1,18 +1,18 @@
-import "./lib/config.js"
-import login from "./pages/login/login.js";
-import timeline from "./pages/timeline/timeline.js";
-import register from "./pages/register/register.js";
-import { statusUser } from "./lib/auth.js";
+import './lib/config.js';
+import login from './pages/login/login.js';
+import timeline from './pages/timeline/timeline.js';
+import register from './pages/register/register.js';
+import { statusUser } from './lib/auth.js';
 
-const container = document.querySelector("#root");
+const container = document.querySelector('#root');
 
 const routes = () => {
-  container.innerHTML = "";
+  container.innerHTML = '';
   switch (window.location.hash) {
-    case "#login":
+    case '#login':
       container.appendChild(login());
       break;
-    case "#timeline":
+    case '#timeline':
       statusUser((logged) => {
         if (logged) {
           container.appendChild(timeline());
@@ -21,7 +21,7 @@ const routes = () => {
         }
       });
       break;
-    case "#register":
+    case '#register':
       container.appendChild(register());
       break;
     default:
@@ -30,12 +30,12 @@ const routes = () => {
 };
 
 const init = () => {
-  window.addEventListener("hashchange", () => {
+  window.addEventListener('hashchange', () => {
     routes();
   });
 };
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   routes();
   init();
 });
