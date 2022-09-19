@@ -6,10 +6,11 @@ import {
   onAuthStateChanged,
   signInWithPopup,
   GoogleAuthProvider,
-  signOut
+  signOut,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 
 //função de login por email e senha:
@@ -22,9 +23,14 @@ export function loginUserEmail(email, password) {
 }
 
 //função de cadastro de usuário por email e senha:
-export function signinUserEmail(email, password) {
+export function signinUserEmail(email, password, name) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      updateProfile(auth.currentUser, { //função do authentication para pegar dados do usuário como o displayName
+        displayName: name,
+      }).then(() => {
+      }).catch((error) => {
+      });
       const user = userCredential.user;
       return user;
     })
