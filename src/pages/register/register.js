@@ -13,9 +13,8 @@ export default () => {
             <input type="text" id="name" placeholder="Nome">
             <input type="text" id="user-name" placeholder="Nome de Usuário">
             <input type="email" id="email" placeholder="E-mail">
-            <input type="date" id="user-born" placeholder="Data de Nascimento (ex: 01/31/2012)">
             <input type="password" id="password" placeholder="Senha">
-            <input type="password" id="password" placeholder="Confirmação de Senha">
+            <input type="password" id="password-repeat" placeholder="Confirmação de Senha">
             <input type="submit" value="Cadastrar" id="btn-register">
         </form>
         <footer>
@@ -27,13 +26,16 @@ export default () => {
     container.innerHTML = template;
 
     //Definir o comportamento da página de cadastro:
+    const inputName = container.querySelector('#name');
+    // const inputUserName = container.querySelector('#user-name');
     const inputEmail = container.querySelector('#email');
     const inputPassword = container.querySelector('#password');
+    // const inputPassordRepeat = container.querySelector('#password-repeat');
     const btnRegister = container.querySelector('#btn-register');
 
     btnRegister.addEventListener('click', (event) => {
         event.preventDefault();
-        signinUserEmail(inputEmail.value, inputPassword.value)
+        signinUserEmail(inputEmail.value, inputPassword.value, inputName.value)
           .then((userCredential) => {
             window.location.hash = '#timeline';
           })
