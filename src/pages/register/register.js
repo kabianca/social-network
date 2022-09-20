@@ -41,6 +41,5 @@ export default () => {
             const errorMessage = error.message;
           });
       });
-  });
   return container;
 };

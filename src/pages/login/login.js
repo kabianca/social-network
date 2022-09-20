@@ -12,7 +12,9 @@ export default () => {
           <input type="email" id="email" placeholder="Insira seu e-mail">
           <input type="password" id="password" placeholder="Digite sua senha">
           <input id="btn-login" type="submit" value="Logar" />
-          <button id="btn-google"><img id="img-google" src="assets/btn_google_signin_light_normal_web@2x.png" alt="botão de login com conta google"></button>
+          <button id="btn-google">
+            <img id="img-google" src="assets/btn_google_signin_light_normal_web@2x.png" alt="botão de login com conta google">
+          </button>
         </form>
         <footer>
           <h4>Não possui conta?</h4>
