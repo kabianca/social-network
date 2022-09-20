@@ -61,31 +61,33 @@ body {
   height: 4vh;
   border-radius: 5px;
   color: var(--color-dark-green);
-  font-size: 1rem;
-  text-align: center;
+}
+
+#container-login > form > input::placeholder {
+  color: var(--color-dark-green);
 }
 
 #container-login > form > input[type='submit'] {
   background-color: var(--color-red);
-  width: 32vw;
-  height: 3.5vh;
   border: none;
-  border-radius: 15px;
+  padding: 0.3vh 0.3vw;
+  width: 25vw;
+  height: 3.5vh;
+  border-radius: 10px;
   color: var(--color-white);
+  font-family: var(--font-koho);
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 #btn-google {
   background-color: var(--color-no-background);
-  width: 100vw;
-  height: 10vh;
   border: none;
-  border-radius: 5px;
 }
 
 #img-google {
-  height: 8vw;
   width: auto;
-  border-radius: 100px;
+  height: 4vh;
 }
 
 #container-login > footer {

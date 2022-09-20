@@ -9,8 +9,10 @@ export default () => {
         <figure class="box">
             <img id="gif-timeline" src="assets/104313-cooking-chef.gif">
         </figure>
-        <p> Olá, ${auth.currentUser.displayName}
-        <h3>O que vamos cozinhar hoje?</h3>
+        <div id="text-header">
+          <p> Olá, ${auth.currentUser.displayName.split(' ')[0]}!</p>
+          <h3>O que vamos cozinhar hoje?</h3>
+        </div>
     </section>  
     <section id="body-timeline">
         <div id="post-timeline"> 

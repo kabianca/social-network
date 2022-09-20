@@ -5,18 +5,25 @@
 
  #header-timeline {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr 2fr;
    align-items: center;
  }
 
  #gif-timeline {
-   margin: 1vh 1vw;
+   margin: 1vh 0 1vh 6vw ;
    height: 15vh;
    width: auto;
  }
 
- #container-timeline > #header-timeline > h3 {
-   margin: 2vh 6vw 2vh 0;
+ #container-timeline > #header-timeline > #text-header > p {
+   margin: 2vh 5vw 0;
+   color: var(--color-background-dark);
+   font-size: 1rem;
+   font-family: var(--font-koho);
+ }
+
+ #container-timeline > #header-timeline > #text-header > h3 {
+   margin: 1vh 1vw 3vh 2vw;
    color: var(--color-red);
    font-size: 1.7rem;
    font-family: var(--font-koho);

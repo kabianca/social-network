@@ -30,8 +30,7 @@
   color: var(--color-dark-green);
 }
 
-
-input::placeholder {
+#container-register > form > input::placeholder {
     color: var(--color-dark-green);
   }
 
@@ -39,9 +38,9 @@ input::placeholder {
   background-color: var(--color-red);
   margin-top: 1vh;
   width: 25vw;
-  height: 4vh;
+  height: 3.5vh;
   border: none;
-  padding: 0.3rem;
+  padding: 0.3vh 0.3vw;
   border-radius: 10px;
   color: var(--color-white);
   font-family: var(--font-koho);
