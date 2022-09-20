@@ -1,29 +1,13 @@
-import {
-    collection,
-    addDoc,
-    getDocs
-} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+// import { app } from "./config.js";
+// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
-import { auth } from "./auth.js";
-import { db } from "./config.js";
+// const db = getFirestore(app);
 
-//coletar os dados do post:
-export const post = async (text) => {
-    try {
-        const docRef = await addDoc(collection(db, "post"), {
-            name: auth.currentUser.displayName,
-            postText: text,
-            date: new Date(),
-            userId: auth.currentUser.uid,
-        });
-        return docRef.id; //o que ele pede no console.log
-    } catch (e) {
-        // return e
-    }
-};
+// try {
+//   const docRef = await addDoc(collection(db, "users"), {
 
-//ler os dados coletados:
-const querySnapshot = await getDocs(collection(db, "post"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
+//   });
+//   console.log("Document written with ID: ", docRef.id);
+// } catch (e) {
+//   console.error("Error adding document: ", e);
+// }

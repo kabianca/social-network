@@ -1,9 +1,8 @@
-import { loginUserEmail, signinGoogle } from "../../lib/auth.js";
+import { loginUserEmail, signinGoogle } from '../../lib/auth.js';
 
-//Gerar os elementos HTML da página:
 export default () => {
-  const container = document.createElement("div");
-  container.id = "container-login";
+  const container = document.createElement('div');
+  container.id = 'container-login';
 
   const template = `
         <img id="logo" src="assets/cooking.png">
@@ -23,7 +22,6 @@ export default () => {
 
   container.innerHTML = template;
 
-  //Definir o comportamento da página de login:
   const inputEmail = container.querySelector('#email');
   const inputPassword = container.querySelector('#password');
   const btnLogin = container.querySelector('#btn-login');
@@ -35,12 +33,11 @@ export default () => {
     window.location.hash = '#register';
   });
 
-  //Login por e-mail e senha
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
     loginUserEmail(inputEmail.value, inputPassword.value)
       .then(() => {
-        container.innerHTML = "";
+        container.innerHTML = '';
         window.location.hash = '#timeline';
       })
       .catch((error) => {
@@ -49,7 +46,6 @@ export default () => {
       });
   });
 
-  //Login pelo Google:
   btnGoogle.addEventListener('click', (eventTwo) => {
     eventTwo.preventDefault();
     signinGoogle().then(() => {
@@ -61,7 +57,6 @@ export default () => {
         const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
-  })
-
+  });
   return container;
-}
+};

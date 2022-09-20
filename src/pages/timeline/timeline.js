@@ -1,9 +1,8 @@
 import { logout, auth } from "../../lib/auth.js";
 
-//Gerar os elementos HTML da página:
 export default () => {
-  const container = document.createElement("div");
-  container.id = "container-timeline";
+  const container = document.createElement('div');
+  container.id = 'container-timeline';
 
   container.innerHTML = `
     <section id="header-timeline">
@@ -37,10 +36,10 @@ export default () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  btnLogout.addEventListener("click", () => {
+  btnLogout.addEventListener('click', () => {
     logout()
       .then(() => {
-        window.location.hash = "#login";
+        window.location.hash = '#login';
       });
   });
 
@@ -51,4 +50,4 @@ export default () => {
   // 4. acessar esses dados no firestore e imprimir na timeline (ler dados);
 
   return container;
-}
+};
