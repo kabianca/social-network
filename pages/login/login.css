@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+:root {
+  --color-white: #FFFFFF;
+  --color-red: #B4020C;
+  --color-light-green: #708F11;
+  --color-dark-green: #122D02;
+  --color-indigo: #22343C;
+  --color-background: #000810;
+  --color-background-dark: #010509;
+  --font-koho:'KoHo', sans-serif;
+  --font-league:'League Script', cursive;
+}
+
+body {
+  background-image: url(../../assets/fundo-sem-pimenta.jpg);
+  background-size: cover;
+}
+
+#container-login {
+  height: 100vh;
+  margin: 5vh 0;
+  padding: 2vh 0;
+}
+
+#logo {
+  margin: 5vh 0 2.5vh 0;
+  height: 13.5vh;
+  width: auto;
+}
+
+#container-login > h1 {
+  margin-top: 1vh;;
+  color: var(--color-white);
+  font-size: 3.7rem;
+  font-family: var(--font-league);
+}
+
+#container-login > h3 {
+  margin-top: 1vh;
+  color: var(--color-light-green);
+  font-size: 2.2rem;
+  font-family: var(--font-koho);
+}
+
+#container-login > form {
+  margin: 4.5vh 0 5vh 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5vh;
+}
+
+#container-login > form > input {
+  border: 0.18rem groove var(--color-light-green);
+  width: 50vw;
+  height: 4vh;
+  border-radius: 5px;
+  color: var(--color-dark-green);
+}
+
+#container-login > form > input::placeholder {
+  color: var(--color-dark-green);
+}
+
+#container-login > form > input[type='submit'] {
+  background-color: var(--color-red);
+  border: none;
+  padding: 0.3vh 0.3vw;
+  width: 25vw;
+  height: 3.5vh;
+  border-radius: 10px;
+  color: var(--color-white);
+  font-family: var(--font-koho);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+#btn-google {
+  background-color: var(--color-no-background);
+  border: none;
+}
+
+#img-google {
+  width: auto;
+  height: 4vh;
+}
+
+#container-login > footer {
+  display: flex;
+  padding: 8vh 20vw;
+  justify-content: center;
+  margin: 6vh 0 3vh 0;
+  font-family: var(--font-koho);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#container-login > footer > h4 {
+  color: var(--color-white);
+}
+
+#container-login > footer > a {
+  color: var(--color-light-green);
+  text-decoration: none;
+}
