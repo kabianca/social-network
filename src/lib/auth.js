@@ -1,4 +1,3 @@
-import { app } from './config.js';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -7,42 +6,37 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-  updateProfile
-} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+  updateProfile,
+}
+  from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';//eslint-disable-line
+
+import { app } from './config.js';
 
 export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 
-export function loginUserEmail(email, password) {
-  return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    });
+export async function loginUserEmail(email, password) {
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
+  return user;
 }
 
-//função de cadastro de usuário por email e senha:
-export function signinUserEmail(email, password, name) {
-  return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      updateProfile(auth.currentUser, { //função do authentication para pegar dados do usuário como o displayName
-        displayName: name,
-      }).then(() => {
-      }).catch((error) => {
-      });
-      const user = userCredential.user;
-      return user;
-    });
+export async function signinUserEmail(email, password, name) {
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  updateProfile(auth.currentUser, {
+    displayName: name,
+  })
+    .then(() => {
+    })
+    .catch((error) => error);
+  const user = userCredential.user;
+  return user;
 }
 
-export const signinGoogle = () => {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      const user = result.user;
-      return user;
-    });
+export async function signinGoogle() {
+  const result = await signInWithPopup(auth, provider);
+  const user = result.user;
+  return user;
 }
 
 export function statusUser(status) {
