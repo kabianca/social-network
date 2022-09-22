@@ -42,10 +42,7 @@ export default () => {
         container.innerHTML = '';
         window.location.hash = '#timeline';
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+      .catch((error) => error);
   });
 
   btnGoogle.addEventListener('click', (eventTwo) => {
@@ -53,12 +50,7 @@ export default () => {
     signinGoogle().then(() => {
       window.location.hash = '#timeline';
     })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
+      .catch((error) => error);
   });
   return container;
 };
