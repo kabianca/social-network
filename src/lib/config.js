@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js';//eslint-disable-line
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBrzR1xzZ2-Q_hG4zRYnLq2MXXjNgIhw68',
