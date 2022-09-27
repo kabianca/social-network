@@ -1,5 +1,5 @@
 // import { app } from "./config.js";
-// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 
 // const db = getFirestore(app);
 

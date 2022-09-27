@@ -3,6 +3,8 @@ import { logout, auth } from '../../lib/auth.js';
 export default () => {
   const container = document.createElement('div');
   container.id = 'container-timeline';
+  // const userName = auth.currentUser.displayName;
+  // const userFirstName = userName.split(' ])
 
   container.innerHTML = `
     <section id="header-timeline">
