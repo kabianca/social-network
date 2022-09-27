@@ -16,20 +16,17 @@ const provider = new GoogleAuthProvider(app);
 
 export async function loginUserEmail(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
-  // const userCredential = await signInWithEmailAndPassword(auth, email, password);
-  // const user = userCredential.user;
-  // return user;
 }
 
 export async function signinUserEmail(email, password, name) {
-  await createUserWithEmailAndPassword(auth, email, password);
+  createUserWithEmailAndPassword(auth, email, password);
   // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  updateProfile(auth.currentUser, {
+  return updateProfile(auth.currentUser, {
     displayName: name,
-  })
-    .then(() => {
-    })
-    .catch((error) => error);
+  });
+  //   .then(() => {
+  //   })
+  //   .catch((error) => error);
   // const user = userCredential.user;
   // return user;
 }

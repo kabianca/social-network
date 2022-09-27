@@ -48,10 +48,15 @@ describe('function of Firebase should been called once', () => {
 });
 
 describe('function of Firebase should been called with parameters', () => {
+  const email = 'abobrinha@frita.com';
+  const password = 'abobrinha123';
+
   it('login using email and password', () => {
-    const email = 'abobrinha@frita.com';
-    const password = 'abobrinha123';
     loginUserEmail(email, password);
-    expect(signInWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, password);
+    expect(signInWithEmailAndPassword).toHaveBeenCalledWith({ currentUser: 'user' }, email, password);
+  });
+  it('new user using email and password', () => {
+    signinUserEmail(email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith({ currentUser: 'user' }, email, password);
   });
 });

@@ -4,7 +4,7 @@ export default () => {
   const container = document.createElement('div');
   container.id = 'container-timeline';
   // const userName = auth.currentUser.displayName;
-  // const userFirstName = userName.split(' ])
+  // const userFirstName = userName.split(' ')[0];
 
   container.innerHTML = `
     <section id="header-timeline">
