@@ -1,13 +1,14 @@
-// import { app } from "./config.js";
-// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+// import {
+//   getFirestore,
+//   collection,
+//   addDoc,
+// }
+//   from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';//eslint-disable-line
+// import { app } from './config.js';
 
-// const db = getFirestore(app);
+// export const db = getFirestore(app);
 
-// try {
-//   const docRef = await addDoc(collection(db, "users"), {
-
-//   });
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
+// export function recipePost(recipe) {
+//   const postInfos = addDoc(collection(db, 'posts'), recipe);
+//   return postInfos;
 // }

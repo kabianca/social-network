@@ -16,6 +16,7 @@ export default () => {
             <img id="img-google" src="assets/btn_google_signin_light_normal_web@2x.png" alt="botão de login com conta google">
           </button>
         </form>
+        <p id="msg-error"></p>
         <footer>
           <h4>Não possui conta?</h4>
           <a id="btn-register" href="#register">Cadastre-se</a>
@@ -29,24 +30,42 @@ export default () => {
   const btnLogin = container.querySelector('#btn-login');
   const btnGoogle = container.querySelector('#btn-google');
   const btnRegister = container.querySelector('#btn-register');
+  const errorMessage = container.querySelector('#msg-error');
 
-  btnRegister.addEventListener('click', (e) => {
-    e.preventDefault();
+  btnRegister.addEventListener('click', (event) => {
+    event.preventDefault();
     window.location.hash = '#register';
   });
 
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
-    loginUserEmail(inputEmail.value, inputPassword.value)
-      .then(() => {
-        container.innerHTML = '';
-        window.location.hash = '#timeline';
-      })
-      .catch((error) => error);
+    if (inputEmail.value === '' || inputPassword.value === '') {
+      errorMessage.innerHTML = 'Por favor, preencha todos os campos';
+    } else if (inputEmail && inputPassword) {
+      loginUserEmail(inputEmail.value, inputPassword.value)
+        .then(() => {
+          container.innerHTML = '';
+          window.location.hash = '#timeline';
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case 'auth/invalid-email':
+              errorMessage.innerHTML = 'O e-mail inserido não é válido!';
+              break;
+            case 'auth/wrong-password':
+              errorMessage.innerHTML = 'O e-mail ou a senha não está correto!';
+              break;
+            case 'auth/user-not-found':
+              errorMessage.innerHTML = 'O e-mail não possui cadastro, cadastre-se!';
+              break;
+            default:
+          }
+        });
+    }
   });
 
-  btnGoogle.addEventListener('click', (eventTwo) => {
-    eventTwo.preventDefault();
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
     signinGoogle().then(() => {
       window.location.hash = '#timeline';
     })

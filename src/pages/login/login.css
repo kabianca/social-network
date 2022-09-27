@@ -90,6 +90,12 @@ body {
   height: 4vh;
 }
 
+#container-register > p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-white)
+}
+
 #container-login > footer {
   display: flex;
   padding: 8vh 20vw;
