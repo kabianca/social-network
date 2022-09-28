@@ -1,5 +1,5 @@
 import './lib/config.js';
-import login from './pages/login/login.js';
+import { login } from './pages/login/login.js';
 import timeline from './pages/timeline/timeline.js';
 import register from './pages/register/register.js';
 import { statusUser } from './lib/auth.js';
@@ -29,13 +29,6 @@ const routes = () => {
   }
 };
 
-const init = () => {
-  window.addEventListener('hashchange', () => {
-    routes();
-  });
-};
+window.addEventListener('hashchange', routes);
 
-window.addEventListener('load', () => {
-  routes();
-  init();
-});
+window.addEventListener('load', routes);

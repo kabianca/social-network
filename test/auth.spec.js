@@ -10,7 +10,7 @@ import {
   // getAuth,
   // GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  updateProfile,
+  // updateProfile,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signInWithPopup,
@@ -28,7 +28,6 @@ describe('function of Firebase should been called once', () => {
   it('new user using email', () => {
     signinUserEmail();
     expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
-    expect(updateProfile).toHaveBeenCalledTimes(1);
   });
 
   it('new user or login using Google', () => {
@@ -53,10 +52,11 @@ describe('function of Firebase should been called with parameters', () => {
 
   it('login using email and password', () => {
     loginUserEmail(email, password);
-    expect(signInWithEmailAndPassword).toHaveBeenCalledWith({ currentUser: 'user' }, email, password);
+    expect(signInWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, password);
   });
+
   it('new user using email and password', () => {
     signinUserEmail(email, password);
-    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith({ currentUser: 'user' }, email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, password);
   });
 });
