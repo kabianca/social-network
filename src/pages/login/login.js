@@ -1,6 +1,7 @@
 import { loginUserEmail, signinGoogle } from '../../lib/auth.js';
+import { redirect } from '../../redirect.js';
 
-export default () => {
+export const login = () => {
   const container = document.createElement('div');
   container.id = 'container-login';
 
@@ -34,7 +35,7 @@ export default () => {
 
   btnRegister.addEventListener('click', (event) => {
     event.preventDefault();
-    window.location.hash = '#register';
+    redirect('#register');
   });
 
   btnLogin.addEventListener('click', (event) => {
@@ -45,7 +46,7 @@ export default () => {
       loginUserEmail(inputEmail.value, inputPassword.value)
         .then(() => {
           container.innerHTML = '';
-          window.location.hash = '#timeline';
+          redirect('#timeline');
         })
         .catch((error) => {
           switch (error.code) {
@@ -67,7 +68,7 @@ export default () => {
   btnGoogle.addEventListener('click', (event) => {
     event.preventDefault();
     signinGoogle().then(() => {
-      window.location.hash = '#timeline';
+      redirect('#timeline');
     })
       .catch((error) => error);
   });

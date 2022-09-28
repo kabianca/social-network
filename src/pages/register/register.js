@@ -1,4 +1,5 @@
-import { signinUserEmail } from '../../lib/auth.js';
+import { signinUserEmail, auth } from '../../lib/auth.js';
+import { updateProfile } from '../../lib/exports.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -45,6 +46,9 @@ export default () => {
       errorMessage.innerHTML = 'As duas senhas não são iguais';
     } else if (inputName && inputEmail && emailValid && inputPassword && inputPasswordRepeat) {
       signinUserEmail(inputEmail.value, inputPassword.value, inputName.value)
+        .then(() => updateProfile(auth.currentUser, {
+          displayName: inputName.value,
+        }))
         .then(() => {
           window.location.hash = '#login';
         })

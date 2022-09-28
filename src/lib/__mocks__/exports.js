@@ -1,7 +1,6 @@
 export const initializeApp = jest.fn();
 
-const teste = { currentUser: 'user' };
-export const getAuth = jest.fn(() => teste);
+export const getAuth = jest.fn();
 export const signInWithEmailAndPassword = jest.fn();
 export const createUserWithEmailAndPassword = jest.fn();
 export const onAuthStateChanged = jest.fn();
