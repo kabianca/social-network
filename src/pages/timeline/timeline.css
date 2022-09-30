@@ -165,3 +165,65 @@
   font-family: var(--font-koho);
   color: var(--color-light-green);
   }
+ 
+ @media screen and (min-width: 1100px) {
+  
+  #container-timeline {
+    background: var(--color-white);
+    margin: 5vh 10vh 0 10vh;
+    height: 15vh;
+    border-radius: 10px;
+  }
+
+  #gif-timeline{
+    margin-top: 0;
+    margin-left: -35vh;
+  }
+
+  #container-timeline > #header-timeline > #text-header > p {
+    margin-right: 60vh;
+  }
+ 
+  #container-timeline > #header-timeline > #text-header > h3 {
+    margin-right: 44vh;
+    margin-left: -8vh;
+  }
+
+  #body-timeline {
+    background-image: none;
+    background-color: rgba(0,9,14,0.9);
+    background-size: cover;
+    padding-top: 2vh;
+    height: 75vh;
+    border-radius: 20px;
+  }
+
+  #body-timeline > #post-timeline > input {
+    margin-top: 5vh;
+  }
+
+  #body-timeline > nav {
+    background-color:none;
+    position: relative;
+    list-style: none;
+    margin-top: -31vh;
+    margin-right: 40vh;
+    width: 0;
+  }
+
+  #body-timeline > nav > ul {
+    background-color: white;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    gap:0.5rem;
+  }
+  
+  #btn-home,
+   #btn-logout {
+   color: var(--color-background-desktop);
+   
+ }
+ }
+
