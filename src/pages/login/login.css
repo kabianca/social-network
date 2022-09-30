@@ -13,6 +13,7 @@
   --color-indigo: #22343C;
   --color-background: #000810;
   --color-background-dark: #010509;
+  --color-background-desktop: #00090E;
   --font-koho:'KoHo', sans-serif;
   --font-league:'League Script', cursive;
 }
@@ -113,4 +114,41 @@ body {
 #container-login > footer > a {
   color: var(--color-light-green);
   text-decoration: none;
+}
+
+@media screen and (min-width: 1100px){
+  body {
+    background-image: url(../../assets/background\ desktop.jpg);
+    background-size: cover;
+  }
+
+  #container-login {
+    background: var(--color-background-desktop);
+    opacity: 0.9;
+    height: 90vh;
+    margin-left: 10vh;
+    margin-right: 130vh;
+    border-radius: 10px;
+  }
+
+  #container-login > form > input{
+    width: 30vh;
+  }
+
+  #container-login > form > input[type='submit']{
+    width: 10vh;
+  }
+  
+  #img-google{
+    height: 5vh;
+  }
+ 
+  #container-login > footer{
+   padding: 1vh 2vw;
+   margin: 1vh 1vh 1vh 2vh;
+  }
+  
+#container-login > form > input::placeholder {
+  font-size: 0.7rem;
+}
 }
