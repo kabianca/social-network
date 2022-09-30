@@ -1,14 +1,27 @@
-// import {
-//   getFirestore,
-//   collection,
-//   addDoc,
-// }
-//   from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';//eslint-disable-line
-// import { app } from './config.js';
+import {
+  collection,
+  addDoc,
+  // getDocs
+} from './exports.js';
 
-// export const db = getFirestore(app);
+import { db } from './config.js';
 
-// export function recipePost(recipe) {
-//   const postInfos = addDoc(collection(db, 'posts'), recipe);
-//   return postInfos;
+export async function postagem(titulo, autor, tempo, dificuldade, ingredientes, preparo, data, user) {
+    const publication = await addDoc(collection(db, 'users'), {
+      title: titulo,
+      author: autor,
+      time: tempo,
+      difficult: dificuldade,
+      ingredients: ingredientes,
+      prepare: preparo,
+      date: data,
+      userUid: user,
+    });
+}
+
+// export async function printpostagem(userId) {
+//   const querySnapshot = await getDocs(collection(db, "users"));
+//   querySnapshot.forEach((doc) => {
+//     console.log(`${doc.id} => ${doc.data()}`);
+//   });
 // }
