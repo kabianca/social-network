@@ -36,7 +36,7 @@ export default () => {
 
   const btnLogout = container.querySelector('#btn-logout');
   const btnHome = container.querySelector('#btn-home');
-  const btnLogoutDesktop = container.querySelector('#btn-logout-desktop');
+  
   // const btnPublish = container.querySelector('#btn-publish');
 
   // btnPublish.addEventListener('click', (event) => {
