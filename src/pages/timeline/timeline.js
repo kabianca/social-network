@@ -4,9 +4,6 @@ import recipe from '../../pages/timeline/recipe.js';
 export default () => {
   const container = document.createElement('div');
   container.id = 'container-timeline';
-  /*const chef = auth.currentUser.displayName;
-  const chef1 = chef.split(' ')[0];//eslint-disable-line*/
-
 
   container.innerHTML = `
     <section id="header-timeline">
@@ -31,6 +28,10 @@ export default () => {
     </section>
     `;
 
+  const divModal = container.querySelector('#divModal');
+  divModal.appendChild(recipe());
+  const btnModal = container.querySelector('#btn-modal');
+
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
     modal.style.display = "block";
@@ -38,22 +39,6 @@ export default () => {
 
   const btnLogout = container.querySelector('#btn-logout');
   const btnHome = container.querySelector('#btn-home');
-  
-  // const btnPublish = container.querySelector('#btn-publish');
-
-  // btnPublish.addEventListener('click', (event) => {
-  //   event.preventDefault();
-  //   const recipe = {
-  //     textRecipe: container.querySelector('#post-text').value,
-  //     date: new Date(),
-  //     userUid: auth.currentUser.uid,
-  //     author: chef,
-  //   };
-  //   if (recipe !== '') {
-  //     recipePost(recipe);
-  //   }
-  // });
-
 
   btnHome.addEventListener('click', (event) => {
     event.preventDefault();
@@ -67,6 +52,5 @@ export default () => {
       });
   });
 
-  
   return container;
 }
