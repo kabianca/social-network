@@ -6,17 +6,9 @@ import {
 
 import { db } from './config.js';
 
-export async function postagem(titulo, autor, tempo, dificuldade, ingredientes, preparo, data, user) {
-    const publication = await addDoc(collection(db, 'users'), {
-      title: titulo,
-      author: autor,
-      time: tempo,
-      difficult: dificuldade,
-      ingredients: ingredientes,
-      prepare: preparo,
-      date: data,
-      userUid: user,
-    });
+export function createPost(recipe) {
+  const postRecipe = addDoc(collection(db, 'recipes'), recipe);
+  return postRecipe;
 }
 
 // export async function printpostagem(userId) {
