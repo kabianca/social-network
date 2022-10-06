@@ -1,11 +1,12 @@
 @import './recipe.css';
 
 #container-timeline {
-  background-color: var(--color-white);
+  background-color: rgba(0, 9, 14, 0.9);
   height: 100vh;
 }
 
 #header-timeline {
+  background-color: var(--color-white);
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
@@ -32,8 +33,7 @@
 }
 
 #body-timeline {
-  background-image: url(../../assets/fundo-sem-pimenta.jpg);
-  background-size: cover;
+  background-color: rgba(0, 9, 14, 0.9);
   padding-top: 2vh;
   height: 100vh;
   border-radius: 20px 20px 0 0;
@@ -77,7 +77,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-
   #container-timeline {
     background: var(--color-white);
     margin: 5vh 10vh 0 10vh;

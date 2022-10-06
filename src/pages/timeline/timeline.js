@@ -1,7 +1,9 @@
 import { logout, auth } from '../../lib/auth.js';
-import recipe from '../../pages/timeline/recipe.js';
+import recipe from './recipe.js';
+import { printPostagem } from '../../lib/firestore.js';
+import { printTimeline }from '../../pages/timeline/post.js';
 
-export default () => {
+export default async () => {
   const container = document.createElement('div');
   container.id = 'container-timeline';
 
@@ -27,6 +29,12 @@ export default () => {
         </nav>
     </section>
     `;
+
+  const timelinePost = container.querySelector('#timeline-post');
+
+  const timeline = printTimeline(await printPostagem());
+  timelinePost.innerHTML = timeline;
+
 
   const divModal = container.querySelector('#divModal');
   divModal.appendChild(recipe());

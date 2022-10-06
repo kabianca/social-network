@@ -16,4 +16,6 @@ export {
   collection,
   addDoc,
   getDocs,
+  // query,
+  // where
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';//eslint-disable-line

@@ -1,7 +1,7 @@
 import {
   collection,
   addDoc,
-  // getDocs
+  getDocs
 } from './exports.js';
 
 import { db } from './config.js';
@@ -11,9 +11,25 @@ export function createPost(recipe) {
   return postRecipe;
 }
 
-// export async function printpostagem(userId) {
-//   const querySnapshot = await getDocs(collection(db, "users"));
-//   querySnapshot.forEach((doc) => {
-//     console.log(`${doc.id} => ${doc.data()}`);
-//   });
+export async function printPostagem() {
+  const arrayRecipes = [];
+  const querySnapshot = await getDocs(collection(db, "recipes"));
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const id = doc.id;
+    arrayRecipes.push({ ...data, id });
+  });
+  return arrayRecipes;
+}
+
+// export async function printPostagem() {
+//   const collectionRecipes = await getDocs(collection(db, 'recipes'));
+//   collectionRecipes.forEach((doc) => {
+//     console.log( doc.data());
+//     });
 // }
+
+// const collectionRecipes = await getDocs(collection(db, 'recipes'));
+// collectionRecipes.forEach((doc) => {
+//       console.log( doc.data());
+// });
