@@ -13,7 +13,7 @@ const routes = () => {
       container.appendChild(login());
       break;
     case '#timeline':
-      statusUser(async(logged) => {
+      statusUser(async (logged) => {
         if (logged) {
           container.appendChild(await timeline());
         } else {
