@@ -1,7 +1,7 @@
 import {
   collection,
   addDoc,
-  getDocs
+  getDocs,
 } from './exports.js';
 
 import { db } from './config.js';
@@ -13,7 +13,7 @@ export function createPost(recipe) {
 
 export async function printPostagem() {
   const arrayRecipes = [];
-  const querySnapshot = await getDocs(collection(db, "recipes"));
+  const querySnapshot = await getDocs(collection(db, 'recipes'));
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const id = doc.id;

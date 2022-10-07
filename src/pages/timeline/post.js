@@ -1,6 +1,6 @@
 export function printTimeline(recipes) {
   let timelineComplete = '';
-  recipes.forEach(doc => {
+  recipes.forEach((doc) => {
     const templatePost = `
       <section id="single-post">
         <h1 id="title">${doc.title}</h1>
@@ -12,12 +12,12 @@ export function printTimeline(recipes) {
         </div>
         <details>
           <summary>Ver mais</summary>
-          <p>${doc.ingredients}</p>
-          <p>${doc.prepare}</p>
+          <div>${doc.ingredients}</div>
+          <div>${doc.prepare}</div>
         </details>
       </section>
       `;
-    timelineComplete += templatePost
+    timelineComplete += templatePost;
   });
   return timelineComplete;
 }

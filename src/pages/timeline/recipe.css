@@ -56,40 +56,49 @@
     background-color: rgba(0, 9, 14, 0.9);
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post {
+  #container-timeline>#body-timeline>#timeline-post>#single-post {
     background-color: var(--color-white);
     margin: 2vh 8vw;
+    padding-bottom: 1vh;
     line-height: 2.5vh;
     border-radius: 10px;
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post> .linha1 {
+  #container-timeline>#body-timeline>#timeline-post>#single-post>.linha1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post > h1 {
+  #container-timeline>#body-timeline>#timeline-post>#single-post>h1 {
     padding-top: 1vh;
     font-family: var(--font-koho);
     color: var(--color-dark-green);
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post > p {
+  #container-timeline>#body-timeline>#timeline-post>#single-post>p {
     font-family: var(--font-koho);
     color: var(--color-dark-green);
     font-size: 0.7rem;
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post > .linha1 > p {
+  #container-timeline>#body-timeline>#timeline-post>#single-post>.linha1>p {
     padding: 0.5vh 0;
     font-family: var(--font-koho);
     color: var(--color-red);
     font-size: 0.8rem;
   }
   
-  #container-timeline> #body-timeline> #timeline-post > #single-post > h5 {
-    padding-bottom: 1vh;
+  #container-timeline>#body-timeline>#timeline-post>#single-post>details>summary {
     font-family: var(--font-koho);
     color: var(--color-light-green);
-    }
+  }
+  
+  #container-timeline>#body-timeline>#timeline-post>#single-post>details>div {
+    background-color: rgba(30, 60, 27, 0.3);
+    margin: 1vh 5vw;
+    padding: 2vh 2vw;
+    font-family: var(--font-koho);
+    font-weight: 500;
+    color: #000000;
+  }
