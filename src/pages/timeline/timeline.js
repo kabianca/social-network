@@ -32,8 +32,8 @@ export default async () => {
 
   const timelinePost = container.querySelector('#timeline-post');
 
-  const timeline = printTimeline(await printPostagem());
-  timelinePost.innerHTML = timeline;
+  const timeline = printTimeline(await printPostagem(), timelinePost, auth.currentUser);
+  // timelinePost.innerHTML = timeline;
 
   const divModal = container.querySelector('#divModal');
   divModal.appendChild(recipe());
@@ -44,20 +44,21 @@ export default async () => {
     modal.style.display = 'block';
   });
 
-  const btnLogout = container.querySelector('#btn-logout');
-  const btnHome = container.querySelector('#btn-home');
 
-  btnHome.addEventListener('click', (event) => {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    const btnLogout = container.querySelector('#btn-logout');
+    const btnHome = container.querySelector('#btn-home');
 
-  btnLogout.addEventListener('click', () => {
-    logout()
-      .then(() => {
-        window.location.hash = '#login';
-      });
-  });
+    btnHome.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    btnLogout.addEventListener('click', () => {
+      logout()
+        .then(() => {
+          window.location.hash = '#login';
+        });
+    });
 
   return container;
 };

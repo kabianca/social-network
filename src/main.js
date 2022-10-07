@@ -6,7 +6,7 @@ import { statusUser } from './lib/auth.js';
 
 const container = document.querySelector('#root');
 
-const routes = () => {
+const routes = async () => {
   container.innerHTML = '';
   switch (window.location.hash) {
     case '#login':

@@ -37,6 +37,7 @@ export default () => {
       date: new Date(),
       author: auth.currentUser.displayName,
       userUid: auth.currentUser.uid,
+      likes: [],
     };
 
     if (recipe !== '') {

@@ -16,6 +16,10 @@ export {
   collection,
   addDoc,
   getDocs,
-  // query,
-  // where
+  arrayUnion,
+  arrayRemove,
+  orderBy,
+  updateDoc,
+  doc,
+  query,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';//eslint-disable-line

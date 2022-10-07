@@ -2,6 +2,12 @@ import {
   collection,
   addDoc,
   getDocs,
+  arrayUnion,
+  arrayRemove,
+  // orderBy,
+  updateDoc,
+  // query,
+  doc,
 } from './exports.js';
 
 import { db } from './config.js';
@@ -22,14 +28,16 @@ export async function printPostagem() {
   return arrayRecipes;
 }
 
-// export async function printPostagem() {
-//   const collectionRecipes = await getDocs(collection(db, 'recipes'));
-//   collectionRecipes.forEach((doc) => {
-//     console.log( doc.data());
-//     });
-// }
+export async function likeRecipe(idPost, uidUser) {
+  const docRef = doc(db, 'recipes', idPost);
+  return await updateDoc(docRef, {
+    likes: arrayUnion(uidUser),
+  });
+}
 
-// const collectionRecipes = await getDocs(collection(db, 'recipes'));
-// collectionRecipes.forEach((doc) => {
-//       console.log( doc.data());
-// });
+export async function deslikeRecipe(idPost, uidUser) {
+  const docRef = doc(db, 'recipes', idPost);
+  return await updateDoc(docRef, {
+    likes: arrayRemove(uidUser),
+  });
+};
