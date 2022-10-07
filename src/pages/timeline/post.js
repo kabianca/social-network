@@ -1,9 +1,11 @@
-import { likeRecipe, deslikeRecipe } from '../../lib/firestore.js';
+import { db } from '../../lib/config.js';
+import { collection} from '../../lib/exports.js';
+import { likeRecipe, deslikeRecipe, deleteRecipe } from '../../lib/firestore.js';
 
 export function printTimeline(recipes, timelinePost, user) {
   recipes.forEach((doc) => {
     const postContainer = document.createElement('div');
-    postContainer.id = 'single-post';
+    postContainer.id ='single-post';
     let countLikes = doc.likes.length;
     
     const templatePost = `
@@ -18,12 +20,14 @@ export function printTimeline(recipes, timelinePost, user) {
           <summary>Ver mais</summary>
           <div>${doc.ingredients}</div>
           <div>${doc.prepare}</div>
-        </details>
+          <p id="btn-del"></p>
+  
       `;
 
       postContainer.innerHTML = templatePost;
 
-      const displayLikes = postContainer.querySelector('.like-count');
+      const delPost = postContainer.querySelector('#btn-del');
+      const displayLikes = postContainer.querySelector('.like-count'); 
       const likeHeart = postContainer.querySelector('.fa-regular');
       const likeBtn = postContainer.querySelector('.btn-like');
       let likeForUser = doc.likes.filter((client) => client === user.uid);
@@ -47,8 +51,30 @@ export function printTimeline(recipes, timelinePost, user) {
           }
         });
 
+        // if ()
+        
+        delPost.innerHTML=`<button data-remove="${doc.id}">Apagar</button>`;
+
+        postContainer.addEventListener('click', e => {
+          const removeButtonId = e.target.dataset.remove
+          
+          if (removeButtonId){
+            deleteRecipe(removeButtonId)
+            .then(() => {
+              window.location.reload();
+            })
+            .catch( e => {
+              console.log("Erro")
+            })
+          }
+        })
+
+
       timelinePost.appendChild(postContainer);
   });
 
 }
+
+
+
 

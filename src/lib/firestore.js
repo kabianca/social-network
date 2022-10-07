@@ -8,9 +8,11 @@ import {
   updateDoc,
   // query,
   doc,
+  deleteDoc,
 } from './exports.js';
 
 import { db } from './config.js';
+
 
 export function createPost(recipe) {
   const postRecipe = addDoc(collection(db, 'recipes'), recipe);
@@ -41,3 +43,7 @@ export async function deslikeRecipe(idPost, uidUser) {
     likes: arrayRemove(uidUser),
   });
 };
+
+export async function deleteRecipe(idPost) {
+  return await deleteDoc(doc(db, 'recipes', idPost))
+}
