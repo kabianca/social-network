@@ -18,6 +18,7 @@ export default () => {
         <input type=text id="inputIngredients" placeholder="Ingredientes">
         <input type=text id="inputPrepare" placeholder="Modo de preparo">
       </form> 
+      <p id="fill-all-inputs"></p>
       <div id="btns">
         <input type="submit" value="Voltar" id="btn-back">
         <input type="submit" value="Publicar" id="btn-publish">
@@ -26,6 +27,7 @@ export default () => {
   `;
 
   const btnPublish = modal.querySelector('#btn-publish');
+  const fillAllInputs = modal.querySelector('#fill-all-inputs');
 
   btnPublish.addEventListener('click', () => {
     const recipe = {
@@ -40,14 +42,17 @@ export default () => {
       likes: [],
     };
 
-    if (recipe !== '') {
+    if ((recipe.title && recipe.time && recipe.ingredients && recipe.prepare) !== '' 
+    && recipe.difficult !== 'difficult') {
       createPost(recipe)
         .then(() => {
           modal.querySelector('form').reset();
           window.location.reload();
+          modal.style.display = 'none';
         });
+    } else {
+      fillAllInputs.innerHTML = `Você precisa preencher todos os campos`;
     }
-    modal.style.display = 'none';
   });
 
   const btnBack = modal.querySelector('#btn-back');

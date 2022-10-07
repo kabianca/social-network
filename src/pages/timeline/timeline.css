@@ -85,8 +85,7 @@
   }
 
   #gif-timeline {
-    margin-top: 0;
-    margin-left: -35vh;
+    margin: 1vh 15vw 1vh 1vw;
   }
 
   #container-timeline>#header-timeline>#text-header>p {
@@ -114,9 +113,8 @@
   #body-timeline>nav {
     background-color: none;
     position: relative;
-    list-style: none;
-    margin-top: -31vh;
-    margin-right: 40vh;
+    margin-right: 18vw;
+    bottom: 83vh;
     width: 0;
   }
 
