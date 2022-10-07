@@ -37,7 +37,8 @@ export default () => {
       prepare: modal.querySelector('#inputPrepare').value,
       date: new Date(),
       author: auth.currentUser.displayName,
-      userUid: auth.currentUser.uid
+      userUid: auth.currentUser.uid,
+      likes: [],
     }
     
     if (recipe !== '') {

@@ -6,14 +6,14 @@ import { statusUser } from './lib/auth.js';
 
 const container = document.querySelector('#root');
 
-const routes = () => {
+const routes = async () => {
   container.innerHTML = '';
   switch (window.location.hash) {
     case '#login':
       container.appendChild(login());
       break;
     case '#timeline':
-      statusUser(async(logged) => {
+      statusUser(async (logged) => {
         if (logged) {
           container.appendChild(await timeline());
         } else {
