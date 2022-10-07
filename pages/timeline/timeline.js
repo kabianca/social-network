@@ -1,6 +1,9 @@
-import { logout, auth } from "../../lib/auth.js";
+import { logout, auth } from '../../lib/auth.js';
+import recipe from './recipe.js';
+import { printPostagem } from '../../lib/firestore.js';
+import { printTimeline } from './post.js';
 
-export default () => {
+export default async () => {
   const container = document.createElement('div');
   container.id = 'container-timeline';
 
@@ -10,46 +13,52 @@ export default () => {
             <img id="gif-timeline" src="assets/104313-cooking-chef.gif">
         </figure>
         <div id="text-header">
-          <p> Olá, ${auth.currentUser.displayName.split(' ')[0]}!</p>
+          <p> Olá, ${auth.currentUser.displayName}!</p>
           <h3>O que vamos cozinhar hoje?</h3>
         </div>
     </section>  
     <section id="body-timeline">
-        <div id="post-timeline"> 
-          <h5>Postagem</h5>
-        </div> 
+        <button id="btn-modal">Clique aqui para publicar sua receita!</button>
+        <section id="divModal"></section>
+        <section id="timeline-post"></section>
         <nav>
             <ul>
               <li><a id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
               <li><a id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
-            </ul>  
+            </ul>
         </nav>
-
-    </section> 
-    
+    </section>
     `;
 
-  // const postText = container.querySelector('input');
-  const btnLogout = container.querySelector('#btn-logout');
-  const btnHome = container.querySelector('#btn-home');
+  const timelinePost = container.querySelector('#timeline-post');
 
-  btnHome.addEventListener('click', (event) => {
+  const timeline = printTimeline(await printPostagem(), timelinePost, auth.currentUser);
+  // timelinePost.innerHTML = timeline;
+
+  const divModal = container.querySelector('#divModal');
+  divModal.appendChild(recipe());
+  const btnModal = container.querySelector('#btn-modal');
+
+  btnModal.addEventListener('click', (event) => {
     event.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    modal.style.display = 'block';
   });
 
-  btnLogout.addEventListener('click', () => {
-    logout()
-      .then(() => {
-        window.location.hash = '#login';
-      });
-  });
 
-  // pensando o algorítmo das postagens:
-  // 1. receber o post do usuário no campo de input do post;
-  // 2. transformar as informações do post em um objeto (post, displayName do usuário, data e hora, id do post);
-  // 3. enviar esses dados para o firestores;
-  // 4. acessar esses dados no firestore e imprimir na timeline (ler dados);
+    const btnLogout = container.querySelector('#btn-logout');
+    const btnHome = container.querySelector('#btn-home');
+
+    btnHome.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    btnLogout.addEventListener('click', () => {
+      logout()
+        .then(() => {
+          window.location.hash = '#login';
+        });
+    });
 
   return container;
 };

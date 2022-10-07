@@ -13,16 +13,19 @@
   --color-indigo: #22343C;
   --color-background: #000810;
   --color-background-dark: #010509;
+  --color-background-desktop: #00090E;
   --font-koho:'KoHo', sans-serif;
   --font-league:'League Script', cursive;
 }
 
 body {
-  background-image: url(../../assets/fundo-sem-pimenta.jpg);
+  background-image: url(../../assets/background\ desktop.jpg);
   background-size: cover;
+  height: 100vh;
 }
 
 #container-login {
+  background-color: rgba(0, 9, 14, 0.9);
   height: 100vh;
   margin: 5vh 0;
   padding: 2vh 0;
@@ -35,7 +38,7 @@ body {
 }
 
 #container-login > h1 {
-  margin-top: 1vh;;
+  margin-top: 1vh;
   color: var(--color-white);
   font-size: 3.7rem;
   font-family: var(--font-league);
@@ -90,6 +93,12 @@ body {
   height: 4vh;
 }
 
+#container-register > p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-white)
+}
+
 #container-login > footer {
   display: flex;
   padding: 8vh 20vw;
@@ -107,4 +116,36 @@ body {
 #container-login > footer > a {
   color: var(--color-light-green);
   text-decoration: none;
+}
+
+@media screen and (min-width: 1100px){
+  #container-login {
+    background: var(--color-background-desktop);
+    opacity: 0.9;
+    height: 90vh;
+    margin-left: 10vh;
+    margin-right: 130vh;
+    border-radius: 10px;
+  }
+
+  #container-login > form > input{
+    width: 30vh;
+  }
+
+  #container-login > form > input[type='submit']{
+    width: 10vh;
+  }
+  
+  #img-google{
+    height: 5vh;
+  }
+ 
+  #container-login > footer{
+   padding: 1vh 2vw;
+   margin: 1vh 1vh 1vh 2vh;
+  }
+  
+#container-login > form > input::placeholder {
+  font-size: 0.7rem;
+}
 }
