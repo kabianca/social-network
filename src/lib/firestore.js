@@ -19,7 +19,7 @@ export function createPost(recipe) {
 
 export async function printPostagem() {
   const arrayRecipes = [];
-  const querySnapshot = await getDocs(collection(db, "recipes"));
+  const querySnapshot = await getDocs(collection(db, 'recipes'));
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const id = doc.id;

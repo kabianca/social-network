@@ -5,6 +5,7 @@ export function printTimeline(recipes, timelinePost, user) {
     const postContainer = document.createElement('div');
     postContainer.id = 'single-post';
     let countLikes = doc.likes.length;
+    
     const templatePost = `
         <h1 id="title">${doc.title}</h1>
         <p>por ${doc.author}</p>
@@ -15,10 +16,11 @@ export function printTimeline(recipes, timelinePost, user) {
         </div>
         <details>
           <summary>Ver mais</summary>
-          <p>${doc.ingredients}</p>
-          <p>${doc.prepare}</p>
+          <div>${doc.ingredients}</div>
+          <div>${doc.prepare}</div>
         </details>
       `;
+
       postContainer.innerHTML = templatePost;
 
       const displayLikes = postContainer.querySelector('.like-count');
@@ -49,3 +51,4 @@ export function printTimeline(recipes, timelinePost, user) {
   });
 
 }
+

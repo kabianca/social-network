@@ -1,7 +1,7 @@
 import { logout, auth } from '../../lib/auth.js';
 import recipe from './recipe.js';
 import { printPostagem } from '../../lib/firestore.js';
-import { printTimeline } from '../../pages/timeline/post.js';
+import { printTimeline } from './post.js';
 
 export default async () => {
   const container = document.createElement('div');
@@ -35,14 +35,13 @@ export default async () => {
   const timeline = printTimeline(await printPostagem(), timelinePost, auth.currentUser);
   // timelinePost.innerHTML = timeline;
 
-
   const divModal = container.querySelector('#divModal');
   divModal.appendChild(recipe());
   const btnModal = container.querySelector('#btn-modal');
 
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
-    modal.style.display = "block";
+    modal.style.display = 'block';
   });
 
 
@@ -61,5 +60,5 @@ export default async () => {
         });
     });
 
-    return container;
+  return container;
 };

@@ -27,9 +27,8 @@ export default () => {
 
   const btnPublish = modal.querySelector('#btn-publish');
 
-  btnPublish.addEventListener('click', (event) => {
-    event.preventDefault();
-      const recipe = {
+  btnPublish.addEventListener('click', () => {
+    const recipe = {
       title: modal.querySelector('#inputTitle').value,
       time: modal.querySelector('#inputTime').value,
       difficult: modal.querySelector('#inputDifficult').value,
@@ -39,26 +38,27 @@ export default () => {
       author: auth.currentUser.displayName,
       userUid: auth.currentUser.uid,
       likes: [],
-    }
-    
+    };
+
     if (recipe !== '') {
       createPost(recipe)
         .then(() => {
           modal.querySelector('form').reset();
+          window.location.reload();
         });
     }
-    return modal.style.display = "none";
+    modal.style.display = 'none';
   });
 
   const btnBack = modal.querySelector('#btn-back');
   btnBack.addEventListener('click', () => {
-    modal.style.display = "none";
+    modal.style.display = 'none';
   });
 
   modal.addEventListener('click', (e) => {
-    if (e.target == modal) {
-      modal.style.display = "none";
+    if (e.target === modal) {
+      modal.style.display = 'none';
     }
   });
   return modal;
-}
+};
