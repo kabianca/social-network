@@ -35,7 +35,7 @@
 #body-timeline {
   background-color: rgba(0, 9, 14, 0.9);
   padding-top: 2vh;
-  height: 100vh;
+  margin-bottom: 20vh;
   border-radius: 20px 20px 0 0;
 }
 
@@ -54,20 +54,21 @@
   font-family: var(--font-koho);
 }
 
-#body-timeline>nav {
+footer > nav {
   background-color: var(--color-background-dark);
   position: fixed;
-  width: 100%;
+  width: 100vw;
   bottom: 0;
+  left: 0;
 }
 
-#body-timeline>nav>ul {
+footer >nav>ul {
   display: flex;
   padding: 3vh 3vw;
   justify-content: center;
 }
 
-#body-timeline>nav>ul>li {
+footer >nav>ul>li {
   margin: 0 10vw;
 }
 
@@ -110,15 +111,15 @@
     margin-top: 5vh;
   }
 
-  #body-timeline>nav {
+  /* #body-timeline>nav {
     background-color: none;
-    position: relative;
+    position: absolute;
     margin-right: 18vw;
-    bottom: 83vh;
+    top: -83vh;
     width: 0;
-  }
+  } */
 
-  #body-timeline>nav>ul {
+  /* #body-timeline>nav>ul {
     background-color: white;
     list-style: none;
     display: flex;
@@ -130,5 +131,5 @@
   #btn-home,
   #btn-logout {
     color: var(--color-background-desktop);
-  }
+  } */
 }

@@ -22,12 +22,23 @@ export function createPost(recipe) {
 export async function printPostagem() {
   const arrayRecipes = [];
   const querySnapshot = await getDocs(collection(db, 'recipes'));
+  // let teste = query(querySnapshot, orderBy('date'));
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const id = doc.id;
     arrayRecipes.push({ ...data, id });
   });
-  return arrayRecipes;
+  const copy = [...arrayRecipes]
+  return (copy.sort((a, b) => {
+    if (a.date > b.date) {
+      return -1;
+    }
+  }));
+}
+
+export async function editPost(idPost, newRecipe) {
+  const docRef = doc(db, 'recipes', idPost);
+  await updateDoc(docRef, newRecipe);
 }
 
 export async function likeRecipe(idPost, uidUser) {
