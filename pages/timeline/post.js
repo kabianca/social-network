@@ -30,7 +30,7 @@ export default (recipes, timelinePost, user) => {
     postContainer.innerHTML = templatePost;
 
     const delPost = postContainer.querySelector('#btn-del');
-
+    const editPost = postContainer.querySelector('#btn-del');
     const displayLikes = postContainer.querySelector('.like-count');
     const ingredients = doc.ingredients.split(', ');
     const likeBtn = postContainer.querySelector('.btn-like');
