@@ -15,7 +15,7 @@ export default () => {
           <option name="medium" value="Médio">Médio</option>
           <option name="hard" value="Difícil">Difícil</option>
         </select><br>
-        <input type=text id="inputIngredients" placeholder="Ingredientes">
+        <input type=text id="inputIngredients" placeholder="Ingredientes separados por vírgula (ex: 1 tomate, 1 cebola...)">
         <input type=text id="inputPrepare" placeholder="Modo de preparo">
       </form> 
       <p id="fill-all-inputs"></p>
@@ -42,7 +42,7 @@ export default () => {
       likes: [],
     };
 
-    if ((recipe.title && recipe.time && recipe.ingredients && recipe.prepare) !== '' 
+    if ((recipe.title && recipe.time && recipe.ingredients && recipe.prepare) !== ''
     && recipe.difficult !== 'difficult') {
       createPost(recipe)
         .then(() => {
@@ -51,7 +51,7 @@ export default () => {
           modal.style.display = 'none';
         });
     } else {
-      fillAllInputs.innerHTML = `Você precisa preencher todos os campos`;
+      fillAllInputs.innerHTML = 'Você precisa preencher todos os campos';
     }
   });
 
