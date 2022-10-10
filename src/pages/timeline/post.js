@@ -4,21 +4,24 @@ import editRecipe from './editRecipe.js';
 export default (recipes, timelinePost, user) => {
   recipes.forEach((doc) => {
     const postContainer = document.createElement('div');
-    postContainer.id = 'single-post';
-    let countLikes = doc.likes.length;
 
+    let countLikes = doc.likes.length;
+    postContainer.setAttribute('id', 'single-post');
+    
     const templatePost = `
         <h1 id="title">${doc.title}</h1>
-        <p>por ${doc.author}</p>
+        <p id="author-post">por ${doc.author}</p>
         <div class="linha1">
           <p>${doc.time}min</p>
           <p>${doc.difficult}</p>
-          <button class="btn-like like-count"><i class="fa-regular fa-heart"></i>${countLikes}</button>
+          <button class="btn-like like-count"><i class="fa-regular fa-heart"></i>${countLikes} curtidas!</button>
         </div>
         <details>
           <summary>Ver mais</summary>
-          <div>${doc.ingredients}</div>
-          <div>${doc.prepare}</div>
+          <div>
+            <ul></ul>
+          </div>
+          <div id="prepare-mode">${doc.prepare}</div>
           <p id="btn-del"></p>
           <p id="btn-edit"></p>
           <section id="divModal"></section>
@@ -27,11 +30,22 @@ export default (recipes, timelinePost, user) => {
     postContainer.innerHTML = templatePost;
 
     const delPost = postContainer.querySelector('#btn-del');
-    const editPost = postContainer.querySelector('#btn-edit');
+
     const displayLikes = postContainer.querySelector('.like-count');
-    const likeHeart = postContainer.querySelector('.fa-regular');
+    const ingredients = doc.ingredients.split(', ');
     const likeBtn = postContainer.querySelector('.btn-like');
+    const unorderedList = postContainer.querySelector('ul');
     let likeForUser = doc.likes.filter((client) => client === user.uid);
+
+    ingredients.forEach((item) => {
+      const list = document.createElement('li');
+      unorderedList.appendChild(list);
+      list.innerHTML += item;
+    });
+
+    if (likeForUser.length !== 0) {
+      likeBtn.innerHTML = `<i class="fa-solid fa-heart"></i>${countLikes} curtidas!`;
+    }
 
     likeBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -39,15 +53,15 @@ export default (recipes, timelinePost, user) => {
         likeRecipe(doc.id, user.uid).then(() => {
           likeForUser.push(user.uid);
           countLikes += 1;
-          displayLikes.textContent = `${countLikes}`;
-          likeHeart.classList.toggle('fa-solid fa-heart');//não está funcionando agora
+          displayLikes.textContent = `${countLikes} curtidas!`;
+          likeBtn.innerHTML = `<i class="fa-solid fa-heart"></i>${countLikes} curtidas!`;
         });
       } else {
         deslikeRecipe(doc.id, user.uid).then(() => {
           likeForUser = [];
           countLikes -= 1;
-          displayLikes.textContent = `${countLikes}`;
-          likeHeart.classList.toggle('fa-regular fa-heart');//não está funcionando agora
+          displayLikes.textContent = `${countLikes} curtidas!`;
+          likeBtn.innerHTML = `<i class="fa-regular fa-heart"></i>${countLikes} curtidas!`;
         });
       }
     });
@@ -79,5 +93,4 @@ export default (recipes, timelinePost, user) => {
   }
     timelinePost.appendChild(postContainer);
   });
-
 }

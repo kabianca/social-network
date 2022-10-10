@@ -13,7 +13,7 @@ export default async () => {
             <img id="gif-timeline" src="assets/104313-cooking-chef.gif">
         </figure>
         <div id="text-header">
-          <p> Olá, ${auth.currentUser.displayName}!</p>
+          <p> Olá!</p>
           <h3>O que vamos cozinhar hoje?</h3>
         </div>
     </section>  
@@ -33,19 +33,17 @@ export default async () => {
     `;
 
   const timelinePost = container.querySelector('#timeline-post');
-
-  post(await printPostagem(), timelinePost, auth.currentUser);
-
   const btnModal = container.querySelector('#btn-modal');
+  const btnLogout = container.querySelector('#btn-logout');
+  const btnHome = container.querySelector('#btn-home');
+  
+  post(await printPostagem(), timelinePost, auth.currentUser);
 
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
     const divModal = container.querySelector('#divModal');
     divModal.appendChild(recipe());
   });
-
-  const btnLogout = container.querySelector('#btn-logout');
-  const btnHome = container.querySelector('#btn-home');
 
   btnHome.addEventListener('click', (event) => {
     event.preventDefault();
