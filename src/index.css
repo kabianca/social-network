@@ -1,0 +1,25 @@
+/* * {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+:root {
+  --color-white: #FFFFFF;
+  --color-red: #B4020C;
+  --color-light-green: #708F11;
+  --color-dark-green: #122D02;
+  --color-indigo: #22343C;
+  --color-background: #000810;
+  --color-background-dark: #010509;
+  --color-background-desktop: #00090E;
+  --font-koho: 'KoHo', sans-serif;
+  --font-league: 'League Script', cursive;
+}
+
+body {
+  background-image: url(../../assets/background\ desktop.jpg);
+  background-size: cover;
+  height: 100vh;
+} */
