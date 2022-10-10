@@ -1,4 +1,4 @@
-#modal {
+#modal, #modalEdit {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     display: none;
@@ -8,7 +8,7 @@
     height: 100%;
   }
   
-  #modal-content {
+  .modal-content {
     background-color: var(--color-white);
     margin: 20vh 10vw;
     padding: 1vh 1vw;
@@ -31,29 +31,69 @@
     font-weight: 600;
   }
   
-  #modal-content > #btns {
+  .modal-content > .btns {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
+  .modal-content > .input-post > .inputIngredients, .inputPrepare {
+    border: 0.18rem groove var(--color-light-green);
+    margin: 0.5vh 0;
+    padding: 1vh 1vw;
+    width: 70vw;
+    height: 8vh;
+    border-radius: 5px;
+    color: var(--color-dark-green);
+    font-family: var(--font-koho);
+    /* word-wrap: break-word; */
+    resize: none;
+  }
+
+  .modal-content > .input-post > .inputDifficult, .inputTime {
+    border: 0.18rem groove var(--color-light-green);
+    margin: 0.5vh 0;
+    padding: 1vh 1vw;
+    width: 35vw;
+    height: 5vh;
+    border-radius: 5px;
+    color: var(--color-dark-green);
+    font-family: var(--font-koho);
+    /* word-wrap: break-word; */
+    resize: none;
+  }
+
+  /* .modal-content > .input-post > .difficult {
+    padding: 1vh 0;
+    width: 70vw;
+    height: 5vh;
+    color: var(--color-dark-green);
+    font-family: var(--font-koho);
+  } */
   
-  #modal-content > #input-post > input, select {
+  .modal-content > .input-post > .inputTitle /*select*/ {
     border: 0.18rem groove var(--color-light-green);
     margin: 0.5vh 0;
     width: 70vw;
-    height: 4vh;
+    height: 5vh;
     border-radius: 5px;
     color: var(--color-dark-green);
+
+  }
+
+  .modal-content > .btns {
+    margin: 1vh 10vw ;
   }
   
-  #modal-content > #btns > input[type='submit']{
+  .modal-content > .btns > input[type='submit']{
     background-color: var(--color-light-green);
-    margin: 1vh ;
-    padding: 0.5vh 5vw;
+    width: 20vw;
+    padding: 0.5vh 1vw;
     color: var(--color-white)
   }
 
   #container-timeline> #body-timeline> #timeline-post{
     background-color: rgba(0, 9, 14, 0.9);
+    padding-bottom: 10vh;
   }
   
   #container-timeline>#body-timeline>#timeline-post>#single-post {
