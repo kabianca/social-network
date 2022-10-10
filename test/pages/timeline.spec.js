@@ -25,11 +25,11 @@ jest.mock('../../src/lib/exports.js');
 describe('Should be print post on timeline', () => {
   const modal = recipe();
   // const btnPublish = modal.querySelector('#btn-publish');
-  const titleInput = modal.querySelector('#inputTitle');
-  const inputTime = modal.querySelector('#inputTime');
-  const inputDifficult = modal.querySelector('#inputDifficult');
-  const ingredientsInput = modal.querySelector('#inputIngredients');
-  const prepareInput = modal.querySelector('#inputPrepare');
+  const titleInput = modal.querySelector('.inputTitle');
+  const inputTime = modal.querySelector('.inputTime');
+  const inputDifficult = modal.querySelector('.inputDifficult');
+  const ingredientsInput = modal.querySelector('.inputIngredients');
+  const prepareInput = modal.querySelector('.inputPrepare');
 
   titleInput.value = 'salad';
   inputTime.value = '5';

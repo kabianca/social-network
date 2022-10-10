@@ -1,4 +1,8 @@
-/* * {
+@import './pages/login/login.css';
+@import './pages/register/register.css';
+@import './pages/timeline/timeline.css';
+
+* {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
@@ -22,4 +26,17 @@ body {
   background-image: url(../../assets/background\ desktop.jpg);
   background-size: cover;
   height: 100vh;
-} */
+}
+
+.logo {
+  margin: 5vh 0 2.5vh 0;
+  height: 13.5vh;
+  width: auto;
+}
+
+.eu-chef {
+  margin-top: 1vh;
+  color: var(--color-white);
+  font-size: 3.7rem;
+  font-family: var(--font-league);
+}

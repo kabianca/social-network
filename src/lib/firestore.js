@@ -24,12 +24,14 @@ export async function printPostagem() {
     data.id = recipe.id;
     arrayRecipes.push(data);
   });
-  const copy = [...arrayRecipes]
-  return (copy.sort((a, b) => {
+  const copy = [...arrayRecipes];
+  const sorted = copy.sort((a, b) => {
     if (a.date > b.date) {
       return -1;
     }
-  }));
+    return 0;
+  });
+  return sorted;
 }
 
 export async function editPost(idPost, newRecipe) {

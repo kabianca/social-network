@@ -28,7 +28,8 @@ export default () => {
   `;
 
   // opção split modo de preparo
-  // placeholder="Modo de preparo separado por ponto e espaço. (ex: Corte os legumes. Unte a forma)"></textarea>
+  // placeholder="Modo de preparo separado por ponto e espaço.
+  // (ex: Corte os legumes. Unte a forma)"></textarea>
 
   modal.style.display = 'block';
 
@@ -57,7 +58,9 @@ export default () => {
           modal.style.display = 'none';
         });
     } else {
-      fillAllInputs.innerHTML = 'Você precisa preencher todos os campos';
+      fillAllInputs.innerHTML = `
+        Você precisa preencher todos os campos
+      `;
     }
   });
 

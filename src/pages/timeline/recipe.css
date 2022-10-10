@@ -20,20 +20,10 @@
     text-align: center; */
   }
   
-  #container-timeline> #body-timeline>#btn-modal {
-    padding: 1.5vh 10vw;
-    border: none;
-    background-color: var(--color-white);
-    color: var(--color-dark-green);
-    border-radius: 15px;
-    font-family: var(--font-koho);
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
   .modal-content > .btns {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 1vh 10vw ;
   }
 
   .modal-content > .input-post > .inputIngredients, .inputPrepare {
@@ -79,10 +69,6 @@
     color: var(--color-dark-green);
 
   }
-
-  .modal-content > .btns {
-    margin: 1vh 10vw ;
-  }
   
   .modal-content > .btns > input[type='submit']{
     background-color: var(--color-light-green);
@@ -96,49 +82,4 @@
     padding-bottom: 10vh;
   }
   
-  #container-timeline>#body-timeline>#timeline-post>#single-post {
-    background-color: var(--color-white);
-    margin: 2vh 8vw;
-    padding-bottom: 1vh;
-    line-height: 2.5vh;
-    border-radius: 10px;
-  }
   
-  #container-timeline>#body-timeline>#timeline-post>#single-post>.linha1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-  }
-  
-  #container-timeline>#body-timeline>#timeline-post>#single-post>h1 {
-    padding-top: 1vh;
-    font-family: var(--font-koho);
-    color: var(--color-dark-green);
-  }
-  
-  #container-timeline>#body-timeline>#timeline-post>#single-post>p {
-    font-family: var(--font-koho);
-    color: var(--color-dark-green);
-    font-size: 0.7rem;
-  }
-  
-  #container-timeline>#body-timeline>#timeline-post>#single-post>.linha1>p {
-    padding: 0.5vh 0;
-    font-family: var(--font-koho);
-    color: var(--color-red);
-    font-size: 0.8rem;
-  }
-  
-  #container-timeline>#body-timeline>#timeline-post>#single-post>details>summary {
-    font-family: var(--font-koho);
-    color: var(--color-light-green);
-  }
-  
-  #container-timeline>#body-timeline>#timeline-post>#single-post>details>div {
-    background-color: rgba(30, 60, 27, 0.3);
-    margin: 1vh 5vw;
-    padding: 2vh 2vw;
-    font-family: var(--font-koho);
-    font-weight: 500;
-    color: #000000;
-  }
