@@ -24,7 +24,17 @@ export async function printPostagem() {
     data.id = recipe.id;
     arrayRecipes.push(data);
   });
-  return arrayRecipes;
+  const copy = [...arrayRecipes]
+  return (copy.sort((a, b) => {
+    if (a.date > b.date) {
+      return -1;
+    }
+  }));
+}
+
+export async function editPost(idPost, newRecipe) {
+  const docRef = doc(db, 'recipes', idPost);
+  return updateDoc(docRef, newRecipe);
 }
 
 export async function likeRecipe(idPost, uidUser) {

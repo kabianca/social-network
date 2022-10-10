@@ -1,11 +1,13 @@
 import { likeRecipe, deslikeRecipe, deleteRecipe } from '../../lib/firestore.js';
+import editRecipe from './editRecipe.js';
 
-export function printTimeline(recipes, timelinePost, user) {
+export default (recipes, timelinePost, user) => {
   recipes.forEach((doc) => {
     const postContainer = document.createElement('div');
+
     let countLikes = doc.likes.length;
     postContainer.setAttribute('id', 'single-post');
-
+    
     const templatePost = `
         <h1 id="title">${doc.title}</h1>
         <p id="author-post">por ${doc.author}</p>
@@ -21,11 +23,14 @@ export function printTimeline(recipes, timelinePost, user) {
           </div>
           <div id="prepare-mode">${doc.prepare}</div>
           <p id="btn-del"></p>
-      `;
+          <p id="btn-edit"></p>
+          <section id="divModal"></section>
+        `;
 
     postContainer.innerHTML = templatePost;
 
     const delPost = postContainer.querySelector('#btn-del');
+
     const displayLikes = postContainer.querySelector('.like-count');
     const ingredients = doc.ingredients.split(', ');
     const likeBtn = postContainer.querySelector('.btn-like');
@@ -61,19 +66,31 @@ export function printTimeline(recipes, timelinePost, user) {
       }
     });
 
+    if (user.uid === doc.userUid) {
+      editPost.innerHTML = `<button id="edit">Editar</button>`;
+      const edit = postContainer.querySelector('#edit');
+      edit.addEventListener('click', (e) => {
+        e.preventDefault();
+        const divModal = postContainer.querySelector('#divModal');
+        divModal.appendChild(editRecipe(doc));
+      });
+    
     delPost.innerHTML = `<button data-remove="${doc.id}">Apagar</button>`;
 
-    postContainer.addEventListener('click', (e) => {
-      const removeButtonId = e.target.dataset.remove;
-
-      if (removeButtonId) {
-        deleteRecipe(removeButtonId)
+    postContainer.addEventListener('click', e => {
+      if (e.target.dataset.remove) {
+        if (window.confirm('Tem certeza de que deseja excluir a publicação?')) {
+         deleteRecipe(e.target.dataset.remove)
           .then(() => {
             window.location.reload();
           })
-          .catch((error) => error);
-      }
-    });
+          .catch(e => {
+            console.log("Erro")
+          });
+        }
+       }
+    })
+  }
     timelinePost.appendChild(postContainer);
   });
 }

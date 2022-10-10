@@ -1,7 +1,7 @@
 import { logout, auth } from '../../lib/auth.js';
 import recipe from './recipe.js';
 import { printPostagem } from '../../lib/firestore.js';
-import { printTimeline } from './post.js';
+import post from './post.js';
 
 export default async () => {
   const container = document.createElement('div');
@@ -21,29 +21,28 @@ export default async () => {
         <button id="btn-modal">Clique aqui para publicar sua receita!</button>
         <section id="divModal"></section>
         <section id="timeline-post"></section>
-        <nav>
-            <ul>
-              <li><a id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
-              <li><a id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
-            </ul>
-        </nav>
     </section>
+    <footer>
+      <nav>
+        <ul>
+          <li><a id="btn-home"><i class="fa-solid fa-house fa-2xl"></i></a></li>
+          <li><a id="btn-logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></li>
+        </ul>
+      </nav>
+    </footer>
     `;
 
   const timelinePost = container.querySelector('#timeline-post');
-
-  printTimeline(await printPostagem(), timelinePost, auth.currentUser);
-
-  const divModal = container.querySelector('#divModal');
   const btnModal = container.querySelector('#btn-modal');
-  const btnHome = container.querySelector('#btn-home');
   const btnLogout = container.querySelector('#btn-logout');
-  divModal.appendChild(recipe());
-  const modal = container.querySelector('#modal');
+  const btnHome = container.querySelector('#btn-home');
+  
+  post(await printPostagem(), timelinePost, auth.currentUser);
 
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
-    modal.style.display = 'block';
+    const divModal = container.querySelector('#divModal');
+    divModal.appendChild(recipe());
   });
 
   btnHome.addEventListener('click', (event) => {
