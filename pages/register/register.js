@@ -3,12 +3,13 @@ import { updateProfile } from '../../lib/exports.js';
 
 export default () => {
   const container = document.createElement('div');
-  container.id = 'container-register';
+  container.setAttribute('class', 'container');
+  container.setAttribute('id', 'container-register');
 
   const template = `
-        <img id="logo" src="assets/cooking.png">
-        <h1>Eu Chef</h1>
-        <h3>Cadastro</h3>
+        <img class="logo" src="assets/cooking.png">
+        <h1 class="eu-chef">Eu Chef</h1>
+        <h3 class="subtitle">Cadastro</h3>
         <form>
             <input type="text" id="name" placeholder="Nome">
             <input type="email" id="email" placeholder="email@example.com">
@@ -16,7 +17,7 @@ export default () => {
             <input type="password" id="password-repeat" placeholder="Confirmação de Senha">
             <input type="submit" value="Cadastrar" id="btn-register">
         </form>
-        <p id="msg-error"></p>
+        <p class="msg-error"></p>
         <footer>
           <h4>Já possui conta?</h4>
           <a id="btn-register" href="#login">Logar</a>
@@ -30,7 +31,7 @@ export default () => {
   const inputPassword = container.querySelector('#password');
   const inputPasswordRepeat = container.querySelector('#password-repeat');
   const btnRegister = container.querySelector('#btn-register');
-  const errorMessage = container.querySelector('#msg-error');
+  const errorMessage = container.querySelector('.msg-error');
 
   btnRegister.addEventListener('click', (event) => {
     const regexEmail = /\S+@\S+\.\S+/;

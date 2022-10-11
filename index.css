@@ -1,8 +1,12 @@
-/* * {
+@import './pages/login/login.css';
+@import './pages/timeline/timeline.css';
+
+* {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  font-family: 'KoHo', sans-serif;
 }
 
 :root {
@@ -10,16 +14,23 @@
   --color-red: #B4020C;
   --color-light-green: #708F11;
   --color-dark-green: #122D02;
-  --color-indigo: #22343C;
   --color-background: #000810;
-  --color-background-dark: #010509;
-  --color-background-desktop: #00090E;
-  --font-koho: 'KoHo', sans-serif;
-  --font-league: 'League Script', cursive;
 }
 
 body {
   background-image: url(../../assets/background\ desktop.jpg);
   background-size: cover;
-  height: 100vh;
-} */
+}
+
+.logo {
+  margin: 5vh 0 2.5vh 0;
+  height: 13.5vh;
+  width: auto;
+}
+
+.eu-chef {
+  margin-top: 1vh;
+  color: var(--color-white);
+  font-family: 'League Script', cursive;
+  font-size: 3.7rem;
+}
