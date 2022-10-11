@@ -10,7 +10,7 @@ export default (recipes, timelinePost, user) => {
     const templatePost = `
         <h1 id="title">${doc.title}</h1>
         <p id="author-post">por ${doc.author}</p>
-        <div class="linha1">
+        <div class="information">
           <p>${doc.time}min</p>
           <p>${doc.difficult}</p>
           <button class="btn-like like-count"><i class="fa-regular fa-heart"></i>${countLikes} curtidas!</button>
@@ -23,7 +23,8 @@ export default (recipes, timelinePost, user) => {
           <div id="prepare-mode">${doc.prepare}</div>
           <p id="btn-del"></p>
           <p id="btn-edit"></p>
-          <section id="divModal"></section>
+        </details>
+        <section id="divModal"></section>
         `;
 
     postContainer.innerHTML = templatePost;

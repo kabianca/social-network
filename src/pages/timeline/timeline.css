@@ -4,6 +4,7 @@
 #container-timeline {
   background-color: rgba(0, 9, 14, 0.9);
   height: 100vh;
+  margin: 0 20vw;
 }
 
 #header-timeline {
@@ -75,7 +76,7 @@ footer >nav>ul>li {
   color: var(--color-white);
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   #container-timeline {
     background: var(--color-white);
     margin: 5vh 10vh 0 10vh;
@@ -108,4 +109,4 @@ footer >nav>ul>li {
   #body-timeline>#post-timeline>input {
     margin-top: 5vh;
   }
-}
+} */

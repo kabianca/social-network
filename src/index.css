@@ -1,5 +1,4 @@
 @import './pages/login/login.css';
-@import './pages/register/register.css';
 @import './pages/timeline/timeline.css';
 
 * {
@@ -16,8 +15,6 @@
   --color-dark-green: #122D02;
   --color-indigo: #22343C;
   --color-background: #000810;
-  --color-background-dark: #010509;
-  --color-background-desktop: #00090E;
   --font-koho: 'KoHo', sans-serif;
   --font-league: 'League Script', cursive;
 }
@@ -25,7 +22,6 @@
 body {
   background-image: url(../../assets/background\ desktop.jpg);
   background-size: cover;
-  height: 100vh;
 }
 
 .logo {
@@ -37,6 +33,6 @@ body {
 .eu-chef {
   margin-top: 1vh;
   color: var(--color-white);
-  font-size: 3.7rem;
   font-family: var(--font-league);
+  font-size: 3.7rem;
 }

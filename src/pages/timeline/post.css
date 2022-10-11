@@ -1,3 +1,11 @@
+#single-post {
+  background-color: var(--color-white);
+  margin: 2vh 15vw;
+  padding-bottom: 1vh;
+  line-height: 2.5vh;
+  border-radius: 10px;
+}
+
 #single-post>h5 {
     margin: 0;
     padding: 5vh 5vw;
@@ -5,16 +13,12 @@
     font-size: 1.5rem;
     font-family: var(--font-koho);
   }
-
-  #container-timeline>#body-timeline>#timeline-post>#single-post {
-    background-color: var(--color-white);
-    margin: 2vh 8vw;
-    padding-bottom: 1vh;
-    line-height: 2.5vh;
-    border-radius: 10px;
+  #container-timeline> #body-timeline> #timeline-post{
+    background-color: rgba(0, 9, 14, 0.9);
+    padding-bottom: 10vh;
   }
   
-  #container-timeline>#body-timeline>#timeline-post>#single-post>.linha1 {
+  #container-timeline>#body-timeline>#timeline-post>#single-post>.information {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
