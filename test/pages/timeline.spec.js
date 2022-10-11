@@ -30,7 +30,7 @@ describe('Should be print post on timeline', () => {
     createPost();
     expect(addDoc).toHaveBeenCalledTimes(1);
     expect(collection).toHaveBeenCalledTimes(1);
-   });
+  });
 });
 
 describe('Should be like/deslike only one recipe', () => {
