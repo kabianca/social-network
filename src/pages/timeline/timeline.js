@@ -36,7 +36,7 @@ export default async () => {
   const btnModal = container.querySelector('#btn-modal');
   const btnLogout = container.querySelector('#btn-logout');
   const btnHome = container.querySelector('#btn-home');
-  
+
   post(await printPostagem(), timelinePost, auth.currentUser);
 
   btnModal.addEventListener('click', (event) => {

@@ -34,6 +34,7 @@
   .modal-content > .btns {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 1vh 10vw ;
   }
 
   .modal-content > .input-post > .inputIngredients, .inputPrepare {
@@ -78,10 +79,6 @@
     border-radius: 5px;
     color: var(--color-dark-green);
 
-  }
-
-  .modal-content > .btns {
-    margin: 1vh 10vw ;
   }
   
   .modal-content > .btns > input[type='submit']{

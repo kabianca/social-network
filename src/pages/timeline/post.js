@@ -7,7 +7,7 @@ export default (recipes, timelinePost, user) => {
 
     let countLikes = doc.likes.length;
     postContainer.setAttribute('id', 'single-post');
-    
+
     const templatePost = `
         <h1 id="title">${doc.title}</h1>
         <p id="author-post">por ${doc.author}</p>
@@ -67,30 +67,30 @@ export default (recipes, timelinePost, user) => {
     });
 
     if (user.uid === doc.userUid) {
-      editPost.innerHTML = `<button id="edit">Editar</button>`;
+      editPost.innerHTML = '<button id="edit">Editar</button>';
       const edit = postContainer.querySelector('#edit');
       edit.addEventListener('click', (e) => {
         e.preventDefault();
         const divModal = postContainer.querySelector('#divModal');
         divModal.appendChild(editRecipe(doc));
       });
-    
-    delPost.innerHTML = `<button data-remove="${doc.id}">Apagar</button>`;
 
-    postContainer.addEventListener('click', e => {
-      if (e.target.dataset.remove) {
-        if (window.confirm('Tem certeza de que deseja excluir a publicação?')) {
-         deleteRecipe(e.target.dataset.remove)
-          .then(() => {
-            window.location.reload();
-          })
-          .catch(e => {
-            console.log("Erro")
-          });
+      delPost.innerHTML = `<button data-remove="${doc.id}">Apagar</button>`;
+
+      postContainer.addEventListener('click', (e) => {
+        if (e.target.dataset.remove) {
+          if (window.confirm('Tem certeza de que deseja excluir a publicação?')) { // eslint-disable-line no-alert
+            deleteRecipe(e.target.dataset.remove)
+              .then(() => {
+                window.location.reload();
+              })
+              .catch(() => {
+                console.log('Erro'); // eslint-disable-line no-console
+              });
+          }
         }
-       }
-    })
-  }
+      });
+    }
     timelinePost.appendChild(postContainer);
   });
-}
+};

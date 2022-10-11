@@ -8,34 +8,37 @@ import {
   collection,
   doc,
   updateDoc,
+  deleteDoc,
 } from '../../src/lib/exports.js';
 
 import {
   createPost,
   likeRecipe,
   deslikeRecipe,
+  deleteRecipe,
+  editPost,
 } from '../../src/lib/firestore.js';
 
-import recipe from '../../src/pages/timeline/recipe.js';
+// import recipe from '../../src/pages/timeline/recipe.js';
 
 // const awaitPromises = () => new Promise(process.nextTick);
 
 jest.mock('../../src/lib/exports.js');
 
 describe('Should be print post on timeline', () => {
-  const modal = recipe();
-  // const btnPublish = modal.querySelector('#btn-publish');
-  const titleInput = modal.querySelector('#inputTitle');
-  const inputTime = modal.querySelector('#inputTime');
-  const inputDifficult = modal.querySelector('#inputDifficult');
-  const ingredientsInput = modal.querySelector('#inputIngredients');
-  const prepareInput = modal.querySelector('#inputPrepare');
+  // const modal = recipe();
+  // // const btnPublish = modal.querySelector('#btn-publish');
+  // const titleInput = modal.querySelector('#inputTitle');
+  // const inputTime = modal.querySelector('#inputTime');
+  // const inputDifficult = modal.querySelector('#inputDifficult');
+  // const ingredientsInput = modal.querySelector('#inputIngredients');
+  // const prepareInput = modal.querySelector('#inputPrepare');
 
-  titleInput.value = 'salad';
-  inputTime.value = '5';
-  inputDifficult.value = 'easy';
-  ingredientsInput.value = 'onion, tomato';
-  prepareInput.value = 'cut and mix the ingredients';
+  // titleInput.value = 'salad';
+  // inputTime.value = '5';
+  // inputDifficult.value = 'easy';
+  // ingredientsInput.value = 'onion, tomato';
+  // prepareInput.value = 'cut and mix the ingredients';
 
   // const user = {
   //   displayName: 'Acelga',
@@ -88,5 +91,20 @@ describe('Should be like/deslike only one recipe', () => {
     expect(doc).toHaveBeenCalledTimes(1);
     expect(updateDoc).toHaveBeenCalledTimes(1);
     expect(arrayRemove).toHaveBeenCalledTimes(1);
+    updateDoc.mockClear();
+  });
+});
+
+describe('function of delete should been called once', () => {
+  it('delete post', async () => {
+    deleteRecipe();
+    expect(deleteDoc).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('function of edit shold been called once', () => {
+  it('edit post', async () => {
+    editPost();
+    expect(updateDoc).toHaveBeenCalledTimes(1);
   });
 });
