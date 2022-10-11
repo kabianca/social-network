@@ -30,10 +30,6 @@ export default () => {
     </section>
   `;
 
-  // opção split modo de preparo
-  // placeholder="Modo de preparo separado por ponto e espaço.
-  // (ex: Corte os legumes. Unte a forma)"></textarea>
-
   modal.style.display = 'block';
 
   const btnPublish = modal.querySelector('.btn-publish');
