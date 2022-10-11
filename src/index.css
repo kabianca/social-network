@@ -6,6 +6,7 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  font-family: 'KoHo', sans-serif;
 }
 
 :root {
@@ -13,10 +14,8 @@
   --color-red: #B4020C;
   --color-light-green: #708F11;
   --color-dark-green: #122D02;
-  --color-indigo: #22343C;
+  /* --color-indigo: #22343C; */
   --color-background: #000810;
-  --font-koho: 'KoHo', sans-serif;
-  --font-league: 'League Script', cursive;
 }
 
 body {
@@ -33,6 +32,6 @@ body {
 .eu-chef {
   margin-top: 1vh;
   color: var(--color-white);
-  font-family: var(--font-league);
+  font-family: 'League Script', cursive;
   font-size: 3.7rem;
 }

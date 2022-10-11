@@ -10,7 +10,6 @@
   padding: 1vh 5vw;
   width: 100vw;
   border-bottom: 2px solid var(--color-background);
-  font-family: var(--font-koho);
 }
 
 #header-timeline > figure > #gif-timeline {
@@ -41,7 +40,6 @@
   padding: 1.2vh 5.5vw;
   border-radius: 7px;
   color: var(--color-white);
-  font-family: var(--font-koho);
   font-size: 1.05rem;
   font-weight: 600;
 }
