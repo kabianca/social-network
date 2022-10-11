@@ -4,7 +4,7 @@ import { auth } from '../../lib/auth.js';
 export default (doc) => {
   const modalEdit = document.createElement('div');
   modalEdit.setAttribute('id', 'modal-edit');
- 
+
   modalEdit.innerHTML = ` 
     <section class="modal-content">
       <form class="input-post"> 

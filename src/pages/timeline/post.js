@@ -69,26 +69,26 @@ export default (recipes, timelinePost, user) => {
     });
 
     if (user.uid === doc.userUid) {
-      editPost.innerHTML = `<button class="btn-edit">Editar</button>`;
+      editPost.innerHTML = '<button class="btn-edit">Editar</button>';
       const btnEdit = postContainer.querySelector('.btn-edit');
-             
+
       btnEdit.addEventListener('click', (e) => {
         e.preventDefault();
         const divModal = postContainer.querySelector('.divModal');
         divModal.appendChild(editRecipe(doc));
       });
 
-      delPost.innerHTML = `<button class="btn-del">Apagar</button>`;
+      delPost.innerHTML = '<button class="btn-del">Apagar</button>';
       const btnDel = postContainer.querySelector('.btn-del');
 
       btnDel.addEventListener('click', (e) => {
         e.preventDefault();
-          if (window.confirm('Tem certeza de que deseja excluir a publicação?')) { //eslint-disable-line
-            deleteRecipe(doc.id)
-              .then(() => {
-                window.location.reload();
-              });
-          }
+        if (window.confirm('Tem certeza de que deseja excluir a publicação?')) { //eslint-disable-line
+          deleteRecipe(doc.id)
+            .then(() => {
+              window.location.reload();
+            });
+        }
       });
     }
     timelinePost.appendChild(postContainer);
