@@ -5,21 +5,21 @@ import post from './post.js';
 
 export default async () => {
   const container = document.createElement('div');
-  container.id = 'container-timeline';
+  container.setAttribute('id', 'container-timeline');
 
   container.innerHTML = `
     <section id="header-timeline">
-        <figure class="box">
+        <figure>
             <img id="gif-timeline" src="assets/104313-cooking-chef.gif">
         </figure>
-        <div id="text-header">
-          <p> Olá!</p>
+        <div>
+          <p> Olá, ${auth.currentUser.displayName}!</p>
           <h3>O que vamos cozinhar hoje?</h3>
         </div>
     </section>  
     <section id="body-timeline">
         <button id="btn-modal">Clique aqui para publicar sua receita!</button>
-        <section id="divModal"></section>
+        <section id="div-modal"></section>
         <section id="timeline-post"></section>
     </section>
     <footer>
@@ -41,7 +41,7 @@ export default async () => {
 
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
-    const divModal = container.querySelector('#divModal');
+    const divModal = container.querySelector('#div-modal');
     divModal.appendChild(recipe());
   });
 

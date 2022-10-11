@@ -3,19 +3,22 @@ import { auth } from '../../lib/auth.js';
 
 export default () => {
   const modal = document.createElement('div');
-  modal.id = 'modal';
+  modal.setAttribute('id', 'modal');
+
   modal.innerHTML = ` 
     <section class="modal-content">
       <form class="input-post"> 
         <input type=text class="inputTitle" placeholder="Título da sua receita">
-        <select class="inputDifficult" name="difficult">
-          <option name="difficult" value= "Dificuldade" selected>Dificuldade</option>
-          <option name="easy" value="Fácil">Fácil</option>
-          <option name="medium" value="Médio">Médio</option>
-          <option name="hard" value="Difícil">Difícil</option>
-        </select>
-        <input type=number class="inputTime" placeholder="Tempo de preparo em minutos">
-        <textarea class="inputIngredients" 
+        <div class="input-smaller">
+          <select class="inputDifficult" name="difficult">
+            <option name="difficult" value= "Dificuldade" selected>Dificuldade</option>
+            <option name="easy" value="Fácil">Fácil</option>
+            <option name="medium" value="Médio">Médio</option>
+            <option name="hard" value="Difícil">Difícil</option>
+          </select>
+          <input type=number class="inputTime" placeholder="Duração em minutos">
+        </div>
+          <textarea class="inputIngredients" 
           placeholder="Ingredientes separados por vírgula e espaço. (ex: 1 xícara de farinha, 2 ovos)"></textarea>
         <textarea type=text class="inputPrepare" placeholder="Modo de preparo"></textarea>
       </form> 
@@ -26,8 +29,6 @@ export default () => {
       </div>
     </section>
   `;
-
-  // opção split modo de preparo
 
   modal.style.display = 'block';
 
@@ -56,7 +57,9 @@ export default () => {
           modal.style.display = 'none';
         });
     } else {
-      fillAllInputs.innerHTML = 'Você precisa preencher todos os campos';
+      fillAllInputs.innerHTML = `
+        Você precisa preencher todos os campos
+      `;
     }
   });
 

@@ -3,18 +3,21 @@ import { auth } from '../../lib/auth.js';
 
 export default (doc) => {
   const modalEdit = document.createElement('div');
-  modalEdit.id = 'modalEdit';
+  modalEdit.setAttribute('id', 'modal-edit');
+
   modalEdit.innerHTML = ` 
     <section class="modal-content">
       <form class="input-post"> 
         <input type=text class="inputTitle" value= "${doc.title}"><br>
-        <select class="inputDifficult" name="difficult">
-          <option name="difficult" value= "${doc.difficult}" selected>${doc.difficult}</option>
-          <option name="easy" value="Fácil">Fácil</option>
-          <option name="medium" value="Médio">Médio</option>
-          <option name="hard" value="Difícil">Difícil</option>
-        </select>
-        <input type=number class="inputTime" value= "${doc.time}">
+        <div class="input-smaller">
+          <select class="inputDifficult" name="difficult">
+            <option name="difficult" value= "${doc.difficult}" selected>${doc.difficult}</option>
+            <option name="easy" value="Fácil">Fácil</option>
+            <option name="medium" value="Médio">Médio</option>
+            <option name="hard" value="Difícil">Difícil</option>
+          </select>
+          <input type=number class="inputTime" value= "${doc.time}">
+        </div>
         <textarea type=text class="inputIngredients" value= "${doc.ingredients}">${doc.ingredients}</textarea>
         <textarea type=text class="inputPrepare" value= "${doc.prepare}">${doc.prepare}</textarea>
       </form> 
