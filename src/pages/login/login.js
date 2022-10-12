@@ -1,5 +1,16 @@
-import { loginUserEmail, signinGoogle } from '../../lib/auth.js';
-import { redirect } from '../../redirect.js';
+import {
+  loginUserEmail,
+  signinGoogle,
+} from '../../lib/auth.js';
+
+import {
+  redirect,
+} from '../../redirect.js';
+
+import {
+  errorsFirebase,
+  validateLogin,
+} from '../../validations.js';
 
 export const login = () => {
   const container = document.createElement('div');
@@ -41,28 +52,19 @@ export const login = () => {
 
   btnLogin.addEventListener('click', (event) => {
     event.preventDefault();
-    if (inputEmail.value === '' || inputPassword.value === '') {
-      errorMessage.innerHTML = 'Por favor, preencha todos os campos';
-    } else if (inputEmail && inputPassword) {
+    const validation = validateLogin(inputEmail.value, inputPassword.value);
+    if (validation === '') {
       loginUserEmail(inputEmail.value, inputPassword.value)
         .then(() => {
           container.innerHTML = '';
           redirect('#timeline');
         })
         .catch((error) => {
-          switch (error.code) {
-            case 'auth/invalid-email':
-              errorMessage.innerHTML = 'O e-mail inserido não é válido!';
-              break;
-            case 'auth/wrong-password':
-              errorMessage.innerHTML = 'O e-mail ou a senha não está correto!';
-              break;
-            case 'auth/user-not-found':
-              errorMessage.innerHTML = 'O e-mail não possui cadastro, cadastre-se!';
-              break;
-            default:
-          }
+          const errorFirebase = errorsFirebase(error.code);
+          errorMessage.innerHTML = errorFirebase;
         });
+    } else {
+      errorMessage.innerHTML = validation;
     }
   });
 

@@ -1,7 +1,17 @@
-import { signinUserEmail, auth } from '../../lib/auth.js';
+import {
+  auth,
+  signinUserEmail,
+} from '../../lib/auth.js';
+
+import {
+  errorsFirebase,
+  validateRegister,
+} from '../../validations.js';
+
+import { redirect } from '../../redirect.js';
 import { updateProfile } from '../../lib/exports.js';
 
-export default () => {
+export const register = () => {
   const container = document.createElement('div');
   container.setAttribute('class', 'container');
   container.setAttribute('id', 'container-register');
@@ -26,47 +36,35 @@ export default () => {
 
   container.innerHTML = template;
 
-  const inputName = container.querySelector('#name');
-  const inputEmail = container.querySelector('#email');
-  const inputPassword = container.querySelector('#password');
-  const inputPasswordRepeat = container.querySelector('#password-repeat');
+  const name = container.querySelector('#name');
+  const email = container.querySelector('#email');
+  const password = container.querySelector('#password');
+  const passwordRepeat = container.querySelector('#password-repeat');
   const btnRegister = container.querySelector('#btn-register');
   const errorMessage = container.querySelector('.msg-error');
 
   btnRegister.addEventListener('click', (event) => {
-    const regexEmail = /\S+@\S+\.\S+/;
-    const emailValid = regexEmail.test(inputEmail.value);
     event.preventDefault();
-    if (inputName.value === '') {
-      errorMessage.innerHTML = 'Preencha o campo de nome!';
-    } else if (inputEmail.value === '') {
-      errorMessage.innerHTML = 'Preencha o campo de e-mail!';
-    } else if (!emailValid) {
-      errorMessage.innerHTML = 'Insira um e-mail válido (ex: seu@email.com)';
-    } else if (inputPassword.value !== inputPasswordRepeat.value) {
-      errorMessage.innerHTML = 'As duas senhas não são iguais';
-    } else if (inputName && inputEmail && emailValid && inputPassword && inputPasswordRepeat) {
-      signinUserEmail(inputEmail.value, inputPassword.value, inputName.value)
+    const validation = validateRegister(
+      name.value,
+      email.value,
+      password.value,
+      passwordRepeat.value,
+    );
+    if (validation === '') {
+      signinUserEmail(email.value, password.value, name.value)
         .then(() => updateProfile(auth.currentUser, {
-          displayName: inputName.value,
+          displayName: name.value,
         }))
         .then(() => {
-          window.location.hash = '#login';
+          redirect('#login');
         })
         .catch((error) => {
-          switch (error.code) {
-            case 'auth/invalid-email':
-              errorMessage.innerHTML = 'O e-mail inserido não é válido!';
-              break;
-            case 'auth/weak-password':
-              errorMessage.innerHTML = 'A senha deve ter 6 ou mais caracteres!';
-              break;
-            case 'auth/email-already-in-use':
-              errorMessage.innerHTML = 'O e-mail inserido já possui cadastro, volte à página de login!';
-              break;
-            default:
-          }
+          const errorFirebase = errorsFirebase(error.code);
+          errorMessage.innerHTML = errorFirebase;
         });
+    } else {
+      errorMessage.innerHTML = validation;
     }
   });
   return container;

@@ -1,12 +1,12 @@
 import {
-  collection,
   addDoc,
-  getDocs,
-  arrayUnion,
   arrayRemove,
-  updateDoc,
-  doc,
+  arrayUnion,
+  collection,
   deleteDoc,
+  doc,
+  getDocs,
+  updateDoc,
 } from './exports.js';
 
 import { db } from './config.js';
@@ -16,7 +16,7 @@ export function createPost(recipe) {
   return postRecipe;
 }
 
-export async function printPostagem() {
+export async function printPost() {
   const arrayRecipes = [];
   const querySnapshot = await getDocs(collection(db, 'recipes'));
   querySnapshot.forEach((recipe) => {
@@ -28,8 +28,7 @@ export async function printPostagem() {
   const sorted = copy.sort((a, b) => {
     if (a.date > b.date) {
       return -1;
-    }
-    return 0;
+    } return 0;
   });
   return sorted;
 }
@@ -39,20 +38,20 @@ export async function editPost(idPost, newRecipe) {
   return updateDoc(docRef, newRecipe);
 }
 
-export async function likeRecipe(idPost, uidUser) {
+export async function likePost(idPost, uidUser) {
   const docRef = doc(db, 'recipes', idPost);
   return updateDoc(docRef, {
     likes: arrayUnion(uidUser),
   });
 }
 
-export async function deslikeRecipe(idPost, uidUser) {
+export async function deslikePost(idPost, uidUser) {
   const docRef = doc(db, 'recipes', idPost);
   return updateDoc(docRef, {
     likes: arrayRemove(uidUser),
   });
 }
 
-export async function deleteRecipe(idPost) {
+export async function deletePost(idPost) {
   return deleteDoc(doc(db, 'recipes', idPost));
 }

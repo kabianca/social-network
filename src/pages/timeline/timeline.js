@@ -1,9 +1,14 @@
-import { logout, auth } from '../../lib/auth.js';
+import {
+  auth,
+  logout,
+} from '../../lib/auth.js';
+
+import { printPost } from '../../lib/firestore.js';
+import { redirect } from '../../redirect.js';
 import recipe from './recipe.js';
-import { printPostagem } from '../../lib/firestore.js';
 import post from './post.js';
 
-export default async () => {
+export const timeline = async () => {
   const container = document.createElement('div');
   container.setAttribute('id', 'container-timeline');
 
@@ -36,8 +41,7 @@ export default async () => {
   const btnModal = container.querySelector('#btn-modal');
   const btnLogout = container.querySelector('#btn-logout');
   const btnHome = container.querySelector('#btn-home');
-
-  post(await printPostagem(), timelinePost, auth.currentUser);
+  post(await printPost(), timelinePost, auth.currentUser);
 
   btnModal.addEventListener('click', (event) => {
     event.preventDefault();
@@ -53,9 +57,8 @@ export default async () => {
   btnLogout.addEventListener('click', () => {
     logout()
       .then(() => {
-        window.location.hash = '#login';
+        redirect('#login');
       });
   });
-
   return container;
 };

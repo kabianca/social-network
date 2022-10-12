@@ -1,5 +1,6 @@
-import { createPost } from '../../lib/firestore.js';
 import { auth } from '../../lib/auth.js';
+import { createPost } from '../../lib/firestore.js';
+import { validatePost } from '../../validations.js';
 
 export default () => {
   const modal = document.createElement('div');
@@ -11,10 +12,10 @@ export default () => {
         <input type=text class="inputTitle" placeholder="Título da sua receita">
         <div class="input-smaller">
           <select class="inputDifficult" name="difficult">
-            <option name="difficult" value= "Dificuldade" selected>Dificuldade</option>
-            <option name="easy" value="Fácil">Fácil</option>
-            <option name="medium" value="Médio">Médio</option>
-            <option name="hard" value="Difícil">Difícil</option>
+            <option name="difficult" value= "difficult" selected>Dificuldade</option>
+            <option name="easy" value="easy">Fácil</option>
+            <option name="medium" value="medium">Médio</option>
+            <option name="hard" value="hard">Difícil</option>
           </select>
           <input type=number class="inputTime" placeholder="Duração em minutos">
         </div>
@@ -48,8 +49,14 @@ export default () => {
       likes: [],
     };
 
-    if ((recipe.title && recipe.time && recipe.ingredients && recipe.prepare) !== ''
-      && recipe.difficult !== 'difficult') {
+    const validation = validatePost(
+      recipe.title,
+      recipe.time,
+      recipe.ingredients,
+      recipe.prepare,
+      recipe.difficult,
+    );
+    if (validation === '') {
       createPost(recipe)
         .then(() => {
           modal.querySelector('form').reset();
@@ -57,9 +64,7 @@ export default () => {
           modal.style.display = 'none';
         });
     } else {
-      fillAllInputs.innerHTML = `
-        Você precisa preencher todos os campos
-      `;
+      fillAllInputs.innerHTML = validation;
     }
   });
 

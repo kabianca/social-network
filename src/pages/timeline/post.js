@@ -1,4 +1,9 @@
-import { likeRecipe, deslikeRecipe, deleteRecipe } from '../../lib/firestore.js';
+import {
+  deletePost,
+  deslikePost,
+  likePost,
+} from '../../lib/firestore.js';
+
 import editRecipe from './editRecipe.js';
 
 export default (recipes, timelinePost, user) => {
@@ -52,14 +57,14 @@ export default (recipes, timelinePost, user) => {
     likeBtn.addEventListener('click', (e) => {
       e.preventDefault();
       if (likeForUser.length === 0) {
-        likeRecipe(doc.id, user.uid).then(() => {
+        likePost(doc.id, user.uid).then(() => {
           likeForUser.push(user.uid);
           countLikes += 1;
           displayLikes.textContent = `${countLikes}`;
           likeBtn.innerHTML = `<i class="fa-solid fa-heart"></i>  ${countLikes}`;
         });
       } else {
-        deslikeRecipe(doc.id, user.uid).then(() => {
+        deslikePost(doc.id, user.uid).then(() => {
           likeForUser = [];
           countLikes -= 1;
           displayLikes.textContent = `${countLikes}`;
@@ -84,7 +89,7 @@ export default (recipes, timelinePost, user) => {
       btnDel.addEventListener('click', (e) => {
         e.preventDefault();
         if (window.confirm('Tem certeza de que deseja excluir a publicação?')) { //eslint-disable-line
-          deleteRecipe(doc.id)
+          deletePost(doc.id)
             .then(() => {
               window.location.reload();
             });

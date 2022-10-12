@@ -3,14 +3,14 @@
  */
 
 import { login } from '../../src/pages/login/login.js';
-import { signinGoogle } from '../../src/lib/auth.js';
 import { redirect } from '../../src/redirect.js';
+import { signinGoogle } from '../../src/lib/auth.js';
 
 jest.mock('../../src/lib/auth.js');
 jest.mock('../../src/lib/exports.js');
 jest.mock('../../src/redirect.js');
 
-const esperaPromisesRodarem = () => new Promise(process.nextTick);
+const awaitPromises = () => new Promise(process.nextTick);
 
 describe('function should redirect user', () => {
   it('login using google redirect to timeline', async () => {
@@ -21,7 +21,7 @@ describe('function should redirect user', () => {
     const btnGoogle = container.querySelector('#btn-google');
     btnGoogle.click();
 
-    await esperaPromisesRodarem();
+    await awaitPromises();
 
     expect(signinGoogle).toHaveBeenCalledTimes(1);
     expect(redirect).toHaveBeenCalledTimes(1);

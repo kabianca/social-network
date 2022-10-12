@@ -1,5 +1,6 @@
-import { editPost } from '../../lib/firestore.js';
 import { auth } from '../../lib/auth.js';
+import { editPost } from '../../lib/firestore.js';
+import { validatePost } from '../../validations.js';
 
 export default (doc) => {
   const modalEdit = document.createElement('div');
@@ -47,8 +48,14 @@ export default (doc) => {
       likes: [],
     };
 
-    if ((newRecipe.title && newRecipe.time && newRecipe.ingredients && newRecipe.prepare) !== ''
-      && newRecipe.difficult !== 'difficult') {
+    const validation = validatePost(
+      newRecipe.title,
+      newRecipe.time,
+      newRecipe.ingredients,
+      newRecipe.prepare,
+      newRecipe.difficult,
+    );
+    if (validation === '') {
       editPost(doc.id, newRecipe)
         .then(() => {
           modalEdit.querySelector('form').reset();
@@ -56,7 +63,7 @@ export default (doc) => {
           modalEdit.style.display = 'none';
         });
     } else {
-      fillAllInputs.innerHTML = 'Você precisa preencher todos os campos';
+      fillAllInputs.innerHTML = validation;
     }
   });
 

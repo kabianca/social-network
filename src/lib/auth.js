@@ -1,14 +1,16 @@
 import {
-  getAuth,
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithPopup,
+  getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from './exports.js';
 
-import { app } from './config.js';
+import {
+  app,
+} from './config.js';
 
 export const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
