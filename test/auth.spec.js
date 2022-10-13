@@ -1,18 +1,15 @@
 import {
   loginUserEmail,
-  signinUserEmail,
-  signinGoogle,
-  statusUser,
   logout,
+  signinGoogle,
+  signinUserEmail,
+  statusUser,
 } from '../src/lib/auth.js';
 
 import {
-  // getAuth,
-  // GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  // updateProfile,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from '../src/lib/exports.js';
@@ -52,11 +49,21 @@ describe('function of Firebase should been called with parameters', () => {
 
   it('login using email and password', () => {
     loginUserEmail(email, password);
-    expect(signInWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, password);
+    expect(signInWithEmailAndPassword).toHaveBeenCalledWith({
+      currentUser: {
+        displayName: 'acelga',
+        userUid: 'uid',
+      },
+    }, email, password);
   });
 
   it('new user using email and password', () => {
     signinUserEmail(email, password);
-    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith({
+      currentUser: {
+        displayName: 'acelga',
+        userUid: 'uid',
+      },
+    }, email, password);
   });
 });

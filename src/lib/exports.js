@@ -1,27 +1,29 @@
-export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';//eslint-disable-line
+export {
+  initializeApp,
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';//eslint-disable-line
 
 export {
-  getAuth,
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithPopup,
+  getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';//eslint-disable-line
 
 export {
-  getFirestore,
-  collection,
   addDoc,
-  getDocs,
-  arrayUnion,
   arrayRemove,
-  orderBy,
-  updateDoc,
-  doc,
-  query,
+  arrayUnion,
+  collection,
   deleteDoc,
+  doc,
+  getDocs,
+  getFirestore,
+  orderBy,
+  query,
   serverTimestamp,
+  updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';//eslint-disable-line
