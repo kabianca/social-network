@@ -40,10 +40,7 @@
 - [8. Considerações Técnicas](#8-considerações-técnicas)
 - [9. Fonte das Imagens](#9-fonte-das-imagens)
 
-***
-
 ## **1. Apresentação**
----
 
 Esse projeto tem como principal objetivo a construção de uma aplicação com múltiplas telas em Vanilla JavaScript. Realizamos uma rede social de temática livre na qual usuários podem se registrar usando email/senha ou uma conta Google. Logo, desenvolvemos habilidades sobre autenticação com Firebase Auth, persistência de dados com Firestore e encaminhamento (rotas) de páginas ou componentes, e fomos apresentadas ao conceito de SPA (Single Page Application). Entre os desafios estabelecidos consistiam:
 
@@ -55,12 +52,10 @@ Esse projeto tem como principal objetivo a construção de uma aplicação com m
 Também e alinhando nosa construção à premissa básica das redes sociais, toda a comunidade usuária poderá publicar postagens e/ou excluir suas próprias postagens quando desejar e curtir suas postagens preferidas.
 
 ## **2. Autoras**
----
 
 Social Network foi o nosso terceiro projeto realizado no Bootcamp de Desenvolvimento Web da [Laboratória](https://hub.laboratoria.la/br) e teve como objetivo consolidar metodologias de trabalho em equipes, logo, foi executado pelo trio: [Karla Oliveira](https://github.com/kabianca), [Marina Massaneiro](https://github.com/marinamassaneiro) e [Polyana Magalhães](https://github.com/polyanagm).
 
 ## **3. Eu Chef**
----
 
 A _Eu Chef_ é uma Rede Social com foco na troca de receitas. Tem como objetivo ser uma rede onde é possível publicar suas próprias receitas, acessar receitas publicadas por outras pessoas, curtir e salvar suas receitas favoritas em um livro de receitas único e particular, além de conversar sobre modos de preparos e ingredientes substitutos. A ideia principal é que a comunidade usuária tenha acesso a catálogos de receitas, realize buscas por ingredientes, tempo de preparação ou restrições alimentares e, sobretudo, constribuam com o respositório de receitas suas criações.
 
@@ -72,12 +67,10 @@ Essa rede tem como foco o público adulto, com idade igual ou superior a 18 anos
 - O acesso à timeline fornecerá funcionalidades como postar novas receitas, visualizar todas as receitas armazenadas em nossa base de dados, curtir receitas preferidas e remover curtida de receitas anteriormente curtidas por você.
 
 ## **4. Protótipo de Baixa Fidelidade**
----
 
 <img src="https://github.com/kabianca/social-network/blob/main/prototipo-baixa-fidelidade.jpg" alt="Protótipo de Baixa Fidelidade" style="height: 300px;"/>
 
 ## **5. Protótipo de Alta Fidelidade e Considerações da Pesquisa UX e UI**
----
 
 Os feedbacks recebidos após a exibição do protótipo estiveram relacionados especialmente a elementos associados a UI, ou seja, a **apresentação dos elementos**, **fontes** e **contraste** e foram listados no fluxograma abaixo:
 
@@ -100,7 +93,6 @@ Após a pesquisa retornamos ao protótipo e iteramos as melhorias sugeridas alca
 <img src="https://github.com/kabianca/social-network/blob/main/prototipos-alta-fidelidade-desktop.png" alt="Protótipo Desktop de Alta Fidelidade" style="height: 20vh width: auto;"/>
 
 ## **6. Histórias de Usuário**
----
 
 Depois de entender as necessidades de seus usuários, escreva as Histórias de
 Usuário. Elas representam tudo o que ele precisa fazer/ver na Rede Social. Cada
@@ -144,14 +136,12 @@ uma de suas histórias de usuário deve possuir:
   * Fazer deploy do aplicativo e marcar a versão (git tag).
 
 ## **7. Objetivos de Aprendizagem:**
----
 
 Os principais objetivos atrelados a esse projeto se relacionam diretamente a implementação de Web APIs, routing (history API, evento hashchange, window.location), implementar as funcionalidades de gerenciamento de dados com o Firestore Database e gerenciamento de usuários com o Firebase Authenticator. Além disso, optamos por incrementar nossos aprendizados de Git e GitHub administrando nosso [planejamento](https://github.com/users/kabianca/projects/3/views/1) na plataforma do GitHub e atrelando-o ao repositório do projeto, assim teríamos total controle de quais pull requests estariam associados ao avanço/resolução de problemas listados em cards e dispostos em um [Kanban](https://kanbanize.com/kanban-resources/getting-started/what-is-kanban-board) Dashboard.
 
-<img alt="Planejamento Estruturado no GitHub Projects" src="https://github.com/kabianca/social-network/blob/main/planning.png" style="height: 500px;" />
+![Planejamento Estruturado no GitHub Projects](https://github.com/kabianca/social-network/blob/main/planning.png)
 
 ## **8. Considerações técnicas:**
----
 
 A lógica do projeto foi implementada somente em JavaScript (ES6), HTML e
 CSS. Neste projeto não está permitido o uso de bibliotecas e frameworks, apenas
@@ -199,7 +189,6 @@ directory: 10 file: 22
 ```
 
 ## **9. Fonte das imagens**
----
 
 - Logo: <a href="https://www.flaticon.com/free-stickers/cooking" title="cooking stickers">Cooking stickers created by Stickers - Flaticon</a>
 - Background protótipo mobile (pimenta removida): Photo by <a href="https://unsplash.com/@pickledstardust?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pickled Stardust</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
